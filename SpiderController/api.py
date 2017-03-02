@@ -60,9 +60,6 @@ def spiderFactoryUpdate(sp):
     output.write(baseData)
     output.close()
 
-def getSpiderItemSetting(id):
-    pass
-
 #####  spiderApi
 
 def createSpider(request):
@@ -114,4 +111,46 @@ def saveSpiderItem(request):
 def runSpider(request):
     pass
 
-######
+def getSpiderSetting(request):
+    data = Spider.objects.get(id = request.GET['id'])
+
+    return HttpResponse(data.param)
+
+###### userApi
+@csrf_exempt
+def userlogin(request):
+    username = request.POST.get('username',-1)
+    password = request.POST.get('password',-1)
+
+    if(username == -1 or password == -1):
+        return HttpResponse(json.dumps({"code":0,"msg":"param error"}))
+
+    try:
+        user = User.objects.get(username = username)
+    except ObjectDoesNotExist:
+        return HttpResponse(json.dumps({"code":0,"msg":"username error"}))
+
+    if(user.password == password):
+        request.session['username'] = user.username
+        request.session['uid'] = user.id
+        request.session['power'] = user.power
+        return HttpResponse(json.dumps({"code":1}))
+    else:
+        return HttpResponse(json.dumps({"code":0,"msg":"password error"}))
+
+@csrf_exempt
+def userregist(request):
+    username = request.POST.get('username',-1)
+    password = request.POST.get('password',-1)
+
+    if(username == -1 or password == -1):
+        return HttpResponse(json.dumps({"code":0,"msg":"param error"}))
+
+    try:
+        user = User.objects.get(username = username)
+        return HttpResponse(json.dumps({"code":0,"msg":"username has already exist"}))
+    except ObjectDoesNotExist:
+        pass
+
+    User.objects.create(username = username,password = password,power = 0)
+    return HttpResponse(json.dumps({"code":1}))

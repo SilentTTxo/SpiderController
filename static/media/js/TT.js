@@ -46,9 +46,9 @@ var TT = {
 			//载入页头
 			$("#pageinfo").load("/media/include/pageinfo.html",function(){
 				//填充页头
-				$(".page-title")[0].innerHTML = $("a[href='"+url+"']")[0].innerHTML;
-				$(".breadcrumb").append('<li><a href="#">'+$("a[href='"+url+"']").parent().parent().parent().children().children()[1].innerHTML+'</a><i class="icon-angle-right"></i></li>');
-				$(".breadcrumb").append('<li><a href="#">'+$("a[href='"+url+"']")[0].innerHTML+'</a></li>');
+				$(".page-title")[0].innerHTML = $("a[href='view"+url+"']")[0].innerHTML;
+				$(".breadcrumb").append('<li><a href="#">'+$("a[href='view"+url+"']").parent().parent().parent().children().children()[1].innerHTML+'</a><i class="icon-angle-right"></i></li>');
+				$(".breadcrumb").append('<li><a href="#">'+$("a[href='view"+url+"']")[0].innerHTML+'</a></li>');
 			});
 
 		});

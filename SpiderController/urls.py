@@ -29,5 +29,7 @@ urlpatterns = [
     url(r'^view/system_info.html', system_info),
 
     #api
-    url(r'^api/getSystemInfo', getSystemInfo)
+    url(r'^api/getSystemInfo', getSystemInfo),
+    url(r'^api/createSpider', createSpider),
+    url(r'^api/saveSpiderItem', saveSpiderItem),
 ]

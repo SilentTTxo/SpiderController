@@ -34,6 +34,9 @@ urlpatterns = [
     url(r'^api/createSpider', createSpider),
     url(r'^api/saveSpiderItem', saveSpiderItem),
     url(r'^api/getSpiderSetting', getSpiderSetting),
+    url(r'^api/runSpider', runSpider),
+    url(r'^api/stopSpider', stopSpider),
+    url(r'^api/getSpiderInfo', getSpiderInfo),
 
     #user api
     url(r'^api/userlogin', userlogin),

@@ -1,13 +1,18 @@
-from django.http import HttpResponse
 import json
 import os
 import sys
+
+from subprocess import Popen, PIPE ,CREATE_NEW_PROCESS_GROUP
+import ctypes
+import signal
+from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
 
 from TTsys import *
 from SpiderModel.models import *
 
+runningSpider = {} # to save the thread which is running Spider
 
 def getSystemInfo(request):
     rs = {"CPU":getCPUstate(),"RAM":getMemorystate(),"NET":getNetsate()}
@@ -47,6 +52,7 @@ def spiderFactoryUpdate(sp):
             for i in param:
                 baseData += "\t\t\t%s = i.css('%s').extract()\n" %(i,param[i])
             baseData += "\t\t\tyield item\n"
+
         if(href != -1):
             baseData += "\t\tfor href in response.css('%s'):\n" %href +\
             "\t\t\turl = href.extract()\n" + \
@@ -60,6 +66,15 @@ def spiderFactoryUpdate(sp):
     output.write(baseData)
     output.close()
 
+def getSpiderStatusById(sid):
+    global runningSpider
+    if(runningSpider.get(sid,-1) == -1):
+        return 0 #not running
+    if(runningSpider.get(sid,-1).poll() != None):
+        runningSpider.pop(sid)
+        return 0 #not running
+    return 1 #running
+    
 #####  spiderApi
 
 def createSpider(request):
@@ -109,12 +124,55 @@ def saveSpiderItem(request):
     return HttpResponse(json.dumps(rs))
 
 def runSpider(request):
-    pass
+    sid = request.GET.get('sid',-1)
+    if(sid == -1):
+        return HttpResponse(json.dumps({"code":0,"msg":"param error"}))
+    try:
+        temp = Spider.objects.get(id = sid)
+    except ObjectDoesNotExist:
+        return HttpResponse(json.dumps({"code":0,"msg":"the spider has not exist"}))
+    
+    base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
+    os.chdir(base + temp.name)
+
+    print("scrapy crawl "+temp.name + " > " + base + "log\\" + temp.name + ".log")
+    p = Popen("scrapy crawl "+temp.name + " > " + base + "log\\" + temp.name + ".log 2>&1",shell=True,creationflags=CREATE_NEW_PROCESS_GROUP)
+
+    global runningSpider
+    runningSpider[sid] = p
+    return HttpResponse(json.dumps({"code":1}))
+
+def stopSpider(request):
+    sid = request.GET.get('sid',-1)
+    if(sid == -1):
+        return HttpResponse(json.dumps({"code":0,"msg":"param error"}))
+    try:
+        temp = Spider.objects.get(id = sid)
+    except ObjectDoesNotExist:
+        return HttpResponse(json.dumps({"code":0,"msg":"the spider has not exist"}))
+    
+    global runningSpider
+    if(runningSpider.get(sid,-1) == -1):
+        return HttpResponse(json.dumps({"code":0,"msg":"the spider has been done"}))
+
+    os.system("taskkill /PID %s /T /F" %runningSpider[sid].pid) 
+    runningSpider.pop(sid)
+    return HttpResponse(json.dumps({"code":1}))
 
 def getSpiderSetting(request):
     data = Spider.objects.get(id = request.GET['id'])
 
     return HttpResponse(data.param)
+
+def getSpiderInfo(request):
+    sp = Spider.objects.filter(uid = request.session['uid'])
+    data = {"code":1}
+    y = []
+    for i in sp:
+        item = {"sid":i.id,"name":i.name,"status":getSpiderStatusById(str(i.id)),"other":i.other}
+        y.append(item)
+    data['data'] = y
+    return HttpResponse(json.dumps(data))
 
 ###### userApi
 @csrf_exempt

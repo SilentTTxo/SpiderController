@@ -1,0 +1,223 @@
+2017-03-03 17:24:43 [scrapy.utils.log] INFO: Scrapy 1.3.0 started (bot: test1)
+2017-03-03 17:24:43 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'test1.spiders', 'SPIDER_MODULES': ['test1.spiders'], 'ROBOTSTXT_OBEY': True, 'BOT_NAME': 'test1'}
+2017-03-03 17:24:43 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2017-03-03 17:24:44 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-03-03 17:24:44 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-03-03 17:24:44 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2017-03-03 17:24:44 [scrapy.core.engine] INFO: Spider opened
+2017-03-03 17:24:44 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-03-03 17:24:44 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-03-03 17:24:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/robots.txt> (referer: None)
+2017-03-03 17:24:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports.html> (referer: None)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/1.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/22.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/20.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/21.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/17.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/19.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/18.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/16.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html>
+{'name': u'\u963f\u62c9\u6c99\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html>
+{'name': u'\u963f\u897f\u65af\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html>
+{'name': u'\u963f\u5229\u666e\u5b89\u7eb3\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html>
+{'name': u'\u963f\u62c9\u5361\u8304\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html>
+{'name': u'\u963f\u4f26\u514b\u5c14\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html>
+{'name': u'\u963f\u5c14\u6885\u7eb3\u62c9\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html>
+{'name': u'\u8d1d\u5c14\u6885\u970d\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html>
+{'name': u'\u74e6\u5361\u62c9\u8d6b\u673a\u573a '}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html>
+{'name': u'\u4e9a\u594e\u74e6\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html>
+{'name': u'\u5361\u7c73\u91cc\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html>
+{'name': u'\u5eb7\u585e\u666e\u897f\u7fc1\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u5361\u8428\u5185\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u5f17\u6717\u897f\u65af\u6566\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u54c8\u535a\u7f57\u5185\u56fd\u9645\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u7518\u6d4e\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u80e1\u6606\u9f50\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u6731\u74e6\u80fd\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u6d1b\u5df4\u7b56\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u9a6c\u7fc1\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html>
+{'name': u'\u5965\u62c9\u5e15\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html>
+{'name': u'\u8d1d\u5c14\u83ab\u6f58\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html>
+{'name': u'\u6bd4\u683c\u514b\u91cc\u514b\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html>
+{'name': u'\u4f2f\u5229\u5179\u57cePhilipS \u56fd\u9645\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html>
+{'name': u'\u8003\u5c14\u514b\u5c9b\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html>
+{'name': u'\u5361\u8036\u67e5\u5e15\u5c14\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html>
+{'name': u'\u79d1\u7f57\u8428\u5c14\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html>
+{'name': u'\u4e39\u683c\u91cc\u52a0\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html>
+{'name': u'\u6885\u6797\u8fbe\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/15.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/14.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/11.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/12.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/13.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/10.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/8.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/9.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u5b89\u5fb7\u7f57\u65af\u57ce\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u963f\u745f\u9547\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u65af\u666e\u6797\u6ce2\u56e0\u7279\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u6bd4\u5bc6\u5c3c\u5c9b\u56fd\u9645\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u51ef\u7279\u5c9b\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u6070\u6ce2\u5c9b\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u521a\u679c\u9547 \u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u514b\u9c81\u514b\u5fb7\u5c9b\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/11.html>
+{'name': u'\u5361\u7279\u5c9b\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u5df4\u91cc\u8428\u5c14\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u5409\u5927\u6e2f Patenga \u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u5e93\u7c73\u62c9\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u79d1\u514b\u65af\u5df4\u624e\u5c14\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u8fbe\u5361 Zia \u56fd\u9645\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u6770\u7d22\u5c14\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u5e93\u5c14\u7eb3\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u6717\u5e03\u5c14\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/13.html>
+{'name': u'\u62c9\u6770\u6c99\u5e0c\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/9.html>
+{'name': u'\u963f\u62c9\u4f2f\u91cc\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/9.html>
+{'name': u'\u963f\u5c14\u6cd5\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/9.html>
+{'name': u'\u5df4\u9a6c\u52a0\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/9.html>
+{'name': u'\u963f\u5c14\u4f2f\u91cc\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/9.html>
+{'name': u'\u963f\u5fb7\u83b1\u5fb7\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/9.html>
+{'name': u'\u5b89\u8fbe\u7a46\u5361\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/9.html>
+{'name': u'\u963f\u57fa\u7ebd\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/9.html>
+{'name': u'\u5965\u5c14\u5df4\u5c3c\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/246.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/245.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/244.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/242.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/240.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/243.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/238.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/241.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/17.html?BaseAirports_page=2> (referer: http://www.yicang.com/airports/17.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/21.html?BaseAirports_page=2> (referer: http://www.yicang.com/airports/21.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/20.html?BaseAirports_page=2> (referer: http://www.yicang.com/airports/20.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/22.html?BaseAirports_page=2> (referer: http://www.yicang.com/airports/22.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/237.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/236.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html?BaseAirports_page=2>
+{'name': u'\u5965\u5170\u6cbb\u6c83\u514b\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html?BaseAirports_page=2>
+{'name': u'\u73c0\u62c9\u4ec0\u5947\u4e9a\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html?BaseAirports_page=2>
+{'name': u'\u6208\u5c14\u8fbe\u89d2\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html?BaseAirports_page=2>
+{'name': u'\u5723\u4f69\u5fb7\u7f57\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html?BaseAirports_page=2>
+{'name': u'\u9a6c\u592a\u897f\u73ed\u7259\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html?BaseAirports_page=2>
+{'name': u'\u5723\u514b\u9c81\u65af\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/17.html?BaseAirports_page=2>
+{'name': u'\u94f6\u6eaa\u673a\u573a'}
+2017-03-03 17:24:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/235.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html?BaseAirports_page=2>
+{'name': u'\u585e\u83b1\u6bd4-\u76ae\u594e\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html?BaseAirports_page=2>
+{'name': u'\u8428\u7ef4\u5824\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/21.html?BaseAirports_page=2>
+{'name': u'\u67f4\u90a6\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u74dc\u4e9a\u62c9\u6885\u6797\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u62c9\u5df4\u65af\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u9a6c\u683c\u8fbe\u83b1\u7eb3\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u8499\u7279\u963f\u53e4\u591a\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u5723\u9a6c\u8482\u4e9a\u65af\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u5965\u9c81\u7f57\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u6ce2\u6258\u897f\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u82cf\u4e9a\u96f7\u65af\u6e2f\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u6ce2\u591a\u9ece\u5404\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/20.html?BaseAirports_page=2>
+{'name': u'\u7f57\u535a\u96f7\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.yicang.com/airports/234.html> (referer: http://www.yicang.com/airports.html)
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html?BaseAirports_page=2>
+{'name': u'\u963f\u7eb3\u6ce2\u5229\u65af\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html?BaseAirports_page=2>
+{'name': u'\u963f\u62c9\u62c9\u5938\u62c9\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html?BaseAirports_page=2>
+{'name': u'\u963f\u62c9\u52a0\u5c14\u8428\u65af\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html?BaseAirports_page=2>
+{'name': u'\u963f\u62c9\u8428\u56fe\u5df4\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html?BaseAirports_page=2>
+{'name': u'\u963f\u5c14\u5854\u7c73\u62c9\u673a\u573a'}
+2017-03-03 17:24:49 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.yicang.com/airports/22.html?BaseAirports_page=2>
+{'name': u'\u4f0a\u5854\u4e4c\u5df4\u673a\u573a'}

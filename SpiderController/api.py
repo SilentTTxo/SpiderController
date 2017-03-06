@@ -37,9 +37,10 @@ def spiderFactoryUpdate(sp):
 
     base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
 
-    output = open(base+name+'\\'+name+'\\spiders\\'+name+'_spider.py', 'w')
+    #write to SpiderFile
+    spfile = open(base+name+'\\'+name+'\\spiders\\'+name+'_spider.py', 'w')
 
-    baseData = "import scrapy\n" + "from %s.items import %sItem\n\n" %(name, name.capitalize()) + \
+    baseData = "import scrapy\nfrom scrapy.utils.url import urljoin_rfc\nfrom scrapy.utils.response import get_base_url\n" + "from %s.items import %sItem\n\n" %(name, name.capitalize()) + \
     "class %sSpider(scrapy.Spider):\n\tname=\"%s\"\n\tstart_urls = [\"%s\"]\n" %(name.capitalize(),name,startUrl) +\
     "\tdef parse(self,response):\n"
 
@@ -47,15 +48,16 @@ def spiderFactoryUpdate(sp):
         baseData += "\t\tpass\n"
     else:
         if(item != -1 and param != -1):
-            baseData += "\t\tfor i in response.css('%s'):\n" %item +\
+            baseData += '\t\tfor i in response.css("%s"):\n' %item +\
             "\t\t\titem = %sItem()\n" %name.capitalize() 
             for i in param:
-                baseData += "\t\t\t%s = i.css('%s').extract()\n" %(i,param[i])
+                baseData += '\t\t\t%s = i.css("%s").extract()\n' %(i,param[i])
             baseData += "\t\t\tyield item\n"
 
         if(href != -1):
-            baseData += "\t\tfor href in response.css('%s'):\n" %href +\
+            baseData += '\t\tfor href in response.css("%s"):\n' %href +\
             "\t\t\turl = href.extract()\n" + \
+            "\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" + \
             "\t\t\tyield scrapy.Request(url)\n"
 
         
@@ -63,8 +65,31 @@ def spiderFactoryUpdate(sp):
     #item = getattr(__import__("items"),name.capitalize()+"Item")
     #key = item.__dict__['fields'].keys()
 
-    output.write(baseData)
-    output.close()
+    spfile.write(baseData)
+    spfile.close()
+
+    #write to pipelines
+    pipfile = open(base+name+'\\'+name+'\\pipelines.py', 'w')
+
+    baseData = """
+import sys
+import codecs
+import json
+class %sPipeline(object):
+    
+	def __init__(self):
+		reload(sys)
+		sys.setdefaultencoding('utf-8')
+		self.file = codecs.open("%s.json","w",encoding="utf-8")
+
+	def process_item(self, item, spider):
+		line = json.dumps(item)
+		self.file.write(line)
+		return item
+"""
+    baseData = baseData %(name.capitalize(),name)
+    pipfile.write(baseData)
+    pipfile.close()
 
 def getSpiderStatusById(sid):
     global runningSpider
@@ -86,7 +111,7 @@ def createSpider(request):
     except ObjectDoesNotExist:
         pass
     code = os.system("scrapy startproject "+name)
-    rs = {"code":code}
+    rs = {"code":1}
 
     sp = Spider.objects.create(name = name,uid=-1,param='-1')
     spiderFactoryUpdate(sp)
@@ -136,7 +161,7 @@ def runSpider(request):
     os.chdir(base + temp.name)
 
     print("scrapy crawl "+temp.name + " > " + base + "log\\" + temp.name + ".log")
-    p = Popen("scrapy crawl "+temp.name + " > " + base + "log\\" + temp.name + ".log 2>&1",shell=True,creationflags=CREATE_NEW_PROCESS_GROUP)
+    p = Popen("scrapy crawl "+temp.name + " -o " + temp.name + ".json > " + base + "log\\" + temp.name + ".log 2>&1",shell=True,creationflags=CREATE_NEW_PROCESS_GROUP)
 
     global runningSpider
     runningSpider[sid] = p
@@ -157,6 +182,20 @@ def stopSpider(request):
 
     os.system("taskkill /PID %s /T /F" %runningSpider[sid].pid) 
     runningSpider.pop(sid)
+    return HttpResponse(json.dumps({"code":1}))
+
+def delSpider(request):
+    sid = request.GET.get('sid',-1)
+    if(sid == -1):
+        return HttpResponse(json.dumps({"code":0,"msg":"param error"}))
+    try:
+        temp = Spider.objects.get(id = sid)
+    except ObjectDoesNotExist:
+        return HttpResponse(json.dumps({"code":0,"msg":"the spider has not exist"}))
+    
+    name = temp.name
+    temp.delete()
+    os.system("rmdir /s /q " + name)
     return HttpResponse(json.dumps({"code":1}))
 
 def getSpiderSetting(request):

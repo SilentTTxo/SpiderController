@@ -43,7 +43,7 @@ class %sPipeline(object):
 	def __init__(self):
 		reload(sys)
 		sys.setdefaultencoding('utf-8')
-		self.file = codecs.open("..\\data\\%s.json","w",encoding="utf-8")
+		self.file = codecs.open("..\\\\data\\\\%s.json","w",encoding="utf-8")
 
 	def process_item(self, item, spider):
 		line = json.dumps(dict(item), ensure_ascii=False)
@@ -70,3 +70,33 @@ ITEM_PIPELINES = {
     baseData = baseData %(name,name,name,name,name.capitalize())
     settingfile.write(baseData)
     settingfile.close()
+
+def setFile(base,name,type,content):
+    filepath = base;
+    if(type == 0): #spider
+        filepath += name + "\\"+name+"\\spiders\\"+name+"_spider.py"
+    if(type == 1): #piplines
+        filepath += name + "\\"+name+"\\pipelines.py"
+    if(type == 2): #setting
+        filepath += name + "\\"+name+"\\settings.py"
+    
+    file = open(filepath,'w')
+    file.write(content)
+    file.close()
+    
+    return 1
+
+def getFile(base,name,type):
+    filepath = base;
+    if(type == 0): #spider
+        filepath += name + "\\"+name+"\\spiders\\"+name+"_spider.py"
+    if(type == 1): #piplines
+        filepath += name + "\\"+name+"\\pipelines.py"
+    if(type == 2): #setting
+        filepath += name + "\\"+name+"\\settings.py"
+    
+    file = open(filepath,'r')
+    content = file.read()
+    file.close()
+    
+    return content

@@ -30,15 +30,17 @@ urlpatterns = [
     url(r'^view/login.html', login),
 
     #spider api
-    url(r'^api/getSystemInfo', getSystemInfo),
-    url(r'^api/createSpider', createSpider),
-    url(r'^api/saveSpiderItem', saveSpiderItem),
-    url(r'^api/getSpiderSetting', getSpiderSetting),
-    url(r'^api/runSpider', runSpider),
-    url(r'^api/stopSpider', stopSpider),
-    url(r'^api/getSpiderInfo', getSpiderInfo),
-    url(r'^api/delSpider', delSpider),
-    url(r'^api/getDataCount', getDataCount),
+    url(r'^api/getSystemInfo$', getSystemInfo),
+    url(r'^api/createSpider$', createSpider),
+    url(r'^api/saveSpiderItem$', saveSpiderItem),
+    url(r'^api/getSpiderSetting$', getSpiderSetting),
+    url(r'^api/runSpider$', runSpider),
+    url(r'^api/stopSpider$', stopSpider),
+    url(r'^api/getSpiderInfo$', getSpiderInfo),
+    url(r'^api/delSpider$', delSpider),
+    url(r'^api/getDataCount$', getDataCount),
+    url(r'^api/setSpiderSettingByUser$', setSpiderSettingByUser),
+    url(r'^api/getSpiderSettingByUser$', getSpiderSettingByUser),
 
     #user api
     url(r'^api/userlogin', userlogin),

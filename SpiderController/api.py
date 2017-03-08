@@ -158,7 +158,7 @@ def delSpider(request):
     return HttpResponse(json.dumps({"code":1}))
 
 def getSpiderSetting(request):
-    data = Spider.objects.get(id = request.GET['id'])
+    data = Spider.objects.get(id = request.GET['sid'])
 
     return HttpResponse(data.param)
 
@@ -173,10 +173,31 @@ def getSpiderInfo(request):
     return HttpResponse(json.dumps(data))
 
 def getDataCount(request):
-    sp = Spider.objects.get(id = request.GET['id'])
+    sp = Spider.objects.get(id = request.GET['sid'])
     count = countSpiderData(sp)
 
     return HttpResponse(json.dumps({"code":1,"count":count}))
+
+@csrf_exempt
+def setSpiderSettingByUser(request):
+    sp = Spider.objects.get(id = request.POST['sid'])
+    type = request.POST['type']  #0.spider 1.piplines 2.setting
+    content = request.POST['content']
+    base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
+
+    code = setFile(base,sp.name,int(type),content)
+
+    return HttpResponse(json.dumps({"code":code}))
+
+@csrf_exempt
+def getSpiderSettingByUser(request):
+    sp = Spider.objects.get(id = request.POST['sid'])
+    type = request.POST['type']  #0.spider 1.piplines 2.setting
+    base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
+
+    content = getFile(base,sp.name,int(type))
+
+    return HttpResponse(json.dumps({"code":1,"content":content}))
 
 ###### userApi
 @csrf_exempt

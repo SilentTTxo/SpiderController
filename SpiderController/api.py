@@ -51,7 +51,7 @@ def spiderFactoryUpdate(sp):
             baseData += '\t\tfor i in response.css("%s"):\n' %item +\
             "\t\t\titem = %sItem()\n" %name.capitalize() 
             for i in param:
-                baseData += '\t\t\t%s = i.css("%s").extract()\n' %(i,param[i])
+                baseData += '\t\t\titem["%s"] = i.css("%s")[0].extract()\n' %(i,param[i])
             baseData += "\t\t\tyield item\n"
 
         if(href != -1):
@@ -83,13 +83,29 @@ class %sPipeline(object):
 		self.file = codecs.open("%s.json","w",encoding="utf-8")
 
 	def process_item(self, item, spider):
-		line = json.dumps(item)
-		self.file.write(line)
+		line = json.dumps(dict(item), ensure_ascii=False)
+		self.file.write(line+"\\n")
 		return item
 """
     baseData = baseData %(name.capitalize(),name)
     pipfile.write(baseData)
     pipfile.close()
+
+    #add pipline setting
+    settingfile = open(base+name+'\\'+name+'\\settings.py', 'w')
+    baseData = """
+BOT_NAME = '%s'
+
+SPIDER_MODULES = ['%s.spiders']
+NEWSPIDER_MODULE = '%s.spiders'
+
+ITEM_PIPELINES = {
+    '%s.pipelines.%sPipeline': 800,
+}
+    """
+    baseData = baseData %(name,name,name,name,name.capitalize())
+    settingfile.write(baseData)
+    settingfile.close()
 
 def getSpiderStatusById(sid):
     global runningSpider
@@ -161,7 +177,7 @@ def runSpider(request):
     os.chdir(base + temp.name)
 
     print("scrapy crawl "+temp.name + " > " + base + "log\\" + temp.name + ".log")
-    p = Popen("scrapy crawl "+temp.name + " -o " + temp.name + ".json > " + base + "log\\" + temp.name + ".log 2>&1",shell=True,creationflags=CREATE_NEW_PROCESS_GROUP)
+    p = Popen("scrapy crawl "+temp.name +" > " + base + "log\\" + temp.name + ".log 2>&1",shell=True,creationflags=CREATE_NEW_PROCESS_GROUP)
 
     global runningSpider
     runningSpider[sid] = p

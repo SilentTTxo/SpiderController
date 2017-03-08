@@ -9,9 +9,9 @@ class Test1Spider(scrapy.Spider):
 	def parse(self,response):
 		for i in response.css("#content > h1"):
 			item = Test1Item()
-			H2 = i.css("h1").extract()
+			item["H2"] = i.css("h1::text")[0].extract()
 			yield item
-		for href in response.css("#leftcolumn > a"):
+		for href in response.css("#leftcolumn > a::attr(href)"):
 			url = href.extract()
 			url = urljoin_rfc(get_base_url(response), url)
 			yield scrapy.Request(url)

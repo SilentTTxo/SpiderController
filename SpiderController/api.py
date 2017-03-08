@@ -9,8 +9,8 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
 
-from TTsys import *
 from SpiderModel.models import *
+from fileFactory import *
 
 runningSpider = {} # to save the thread which is running Spider
 
@@ -37,75 +37,10 @@ def spiderFactoryUpdate(sp):
 
     base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
 
-    #write to SpiderFile
-    spfile = open(base+name+'\\'+name+'\\spiders\\'+name+'_spider.py', 'w')
-
-    baseData = "import scrapy\nfrom scrapy.utils.url import urljoin_rfc\nfrom scrapy.utils.response import get_base_url\n" + "from %s.items import %sItem\n\n" %(name, name.capitalize()) + \
-    "class %sSpider(scrapy.Spider):\n\tname=\"%s\"\n\tstart_urls = [\"%s\"]\n" %(name.capitalize(),name,startUrl) +\
-    "\tdef parse(self,response):\n"
-
-    if(sp.param == "-1"):
-        baseData += "\t\tpass\n"
-    else:
-        if(item != -1 and param != -1):
-            baseData += '\t\tfor i in response.css("%s"):\n' %item +\
-            "\t\t\titem = %sItem()\n" %name.capitalize() 
-            for i in param:
-                baseData += '\t\t\titem["%s"] = i.css("%s")[0].extract()\n' %(i,param[i])
-            baseData += "\t\t\tyield item\n"
-
-        if(href != -1):
-            baseData += '\t\tfor href in response.css("%s"):\n' %href +\
-            "\t\t\turl = href.extract()\n" + \
-            "\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" + \
-            "\t\t\tyield scrapy.Request(url)\n"
-
-        
-    #sys.path.append(base+name+'\\'+name)
-    #item = getattr(__import__("items"),name.capitalize()+"Item")
-    #key = item.__dict__['fields'].keys()
-
-    spfile.write(baseData)
-    spfile.close()
-
-    #write to pipelines
-    pipfile = open(base+name+'\\'+name+'\\pipelines.py', 'w')
-
-    baseData = """
-import sys
-import codecs
-import json
-class %sPipeline(object):
+    spiderFile(base,name,startUrl,param,item,href)
+    pipelinesFile(base,name)
+    settingFile(base,name)
     
-	def __init__(self):
-		reload(sys)
-		sys.setdefaultencoding('utf-8')
-		self.file = codecs.open("%s.json","w",encoding="utf-8")
-
-	def process_item(self, item, spider):
-		line = json.dumps(dict(item), ensure_ascii=False)
-		self.file.write(line+"\\n")
-		return item
-"""
-    baseData = baseData %(name.capitalize(),name)
-    pipfile.write(baseData)
-    pipfile.close()
-
-    #add pipline setting
-    settingfile = open(base+name+'\\'+name+'\\settings.py', 'w')
-    baseData = """
-BOT_NAME = '%s'
-
-SPIDER_MODULES = ['%s.spiders']
-NEWSPIDER_MODULE = '%s.spiders'
-
-ITEM_PIPELINES = {
-    '%s.pipelines.%sPipeline': 800,
-}
-    """
-    baseData = baseData %(name,name,name,name,name.capitalize())
-    settingfile.write(baseData)
-    settingfile.close()
 
 def getSpiderStatusById(sid):
     global runningSpider
@@ -115,7 +50,15 @@ def getSpiderStatusById(sid):
         runningSpider.pop(sid)
         return 0 #not running
     return 1 #running
+
+def countSpiderData(sp):
+    name = sp.name
+    thefilepath = "data\\"+name+".json"
     
+    count = 0
+    for count, line in enumerate(open(thefilepath, 'rU')):
+        pass
+    return count
 #####  spiderApi
 
 def createSpider(request):
@@ -228,6 +171,12 @@ def getSpiderInfo(request):
         y.append(item)
     data['data'] = y
     return HttpResponse(json.dumps(data))
+
+def getDataCount(request):
+    sp = Spider.objects.get(id = request.GET['id'])
+    count = countSpiderData(sp)
+
+    return HttpResponse(json.dumps({"code":1,"count":count}))
 
 ###### userApi
 @csrf_exempt

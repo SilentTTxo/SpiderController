@@ -38,6 +38,7 @@ urlpatterns = [
     url(r'^api/stopSpider', stopSpider),
     url(r'^api/getSpiderInfo', getSpiderInfo),
     url(r'^api/delSpider', delSpider),
+    url(r'^api/getDataCount', getDataCount),
 
     #user api
     url(r'^api/userlogin', userlogin),

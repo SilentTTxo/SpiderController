@@ -194,7 +194,9 @@
 			TT.init();
 			
 			//flush()
-			setInterval(flush,1000)
+			$("html").ajaxStop(function(){
+				setInterval(flush,1000)
+			})
 		});
 	</script>
 	<!-- END JAVASCRIPTS -->

@@ -11,13 +11,13 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from SpiderModel.models import *
 from fileFactory import *
+from TTsys import *
 
 runningSpider = {} # to save the thread which is running Spider
 
 def getSystemInfo(request):
     rs = {"CPU":getCPUstate(),"RAM":getMemorystate(),"NET":getNetsate()}
     return HttpResponse(json.dumps(rs))
-
 
 ######  spiderfun
 
@@ -116,11 +116,15 @@ def runSpider(request):
     except ObjectDoesNotExist:
         return HttpResponse(json.dumps({"code":0,"msg":"the spider has not exist"}))
     
+    origin = os.path.abspath('.')
     base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
     os.chdir(base + temp.name)
 
     print("scrapy crawl "+temp.name + " > " + base + "log\\" + temp.name + ".log")
     p = Popen("scrapy crawl "+temp.name +" > " + base + "log\\" + temp.name + ".log 2>&1",shell=True,creationflags=CREATE_NEW_PROCESS_GROUP)
+
+    #checkout to origin path
+    os.chdir(origin)
 
     global runningSpider
     runningSpider[sid] = p
@@ -167,7 +171,11 @@ def getSpiderInfo(request):
     data = {"code":1}
     y = []
     for i in sp:
-        item = {"sid":i.id,"name":i.name,"status":getSpiderStatusById(str(i.id)),"other":i.other}
+        item = {"sid":i.id,"name":i.name,"status":getSpiderStatusById(str(i.id)),"other":i.other,"datasum":"No data"}
+        path = os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + i.name + ".json"
+        if os.path.exists(path):
+            size = os.path.getsize(path)
+            item['datasum'] = formatSize(size)
         y.append(item)
     data['data'] = y
     return HttpResponse(json.dumps(data))
@@ -237,3 +245,8 @@ def userregist(request):
 
     User.objects.create(username = username,password = password,power = 0)
     return HttpResponse(json.dumps({"code":1}))
+
+def getUserInfo(request):
+    data = {"id":request.session['uid'],"username":request.session['username'],"power":request.session['power']}
+
+    return HttpResponse(json.dumps(data))

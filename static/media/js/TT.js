@@ -39,24 +39,25 @@ var TT = {
 		$(".page-sidebar-menu").load("/media/include/sidebar.html",function(){
 			//初始化sidebar样式
 			url = window.location.pathname
-			url = '/'+url.split('/')[2]
+			url = url.split('/')[2]
 			$("a[href='"+url+"']").parent().addClass("active");
 			$("a[href='"+url+"']").parent().parent().parent().addClass("active");
 
 			//载入页头
 			$("#pageinfo").load("/media/include/pageinfo.html",function(){
 				//填充页头
-				$(".page-title")[0].innerHTML = $("a[href='view"+url+"']")[0].innerHTML;
-				$(".breadcrumb").append('<li><a href="#">'+$("a[href='view"+url+"']").parent().parent().parent().children().children()[1].innerHTML+'</a><i class="icon-angle-right"></i></li>');
-				$(".breadcrumb").append('<li><a href="#">'+$("a[href='view"+url+"']")[0].innerHTML+'</a></li>');
+				$(".page-title")[0].innerHTML = $("a[href='"+url+"']")[0].innerHTML;
+				$(".breadcrumb").append('<li><a href="#">'+$("a[href='"+url+"']").parent().parent().parent().children().children()[1].innerHTML+'</a><i class="icon-angle-right"></i></li>');
+				$(".breadcrumb").append('<li><a href="#">'+$("a[href='"+url+"']")[0].innerHTML+'</a></li>');
 			});
 
 		});
 		$("head").load("/media/include/head.html");
 		$(".pull-right").load("/media/include/pull-right.html",function(){
-			/*$.ajax({
+			//填充用户名
+			$.ajax({
 				type:"GET",
-				url:"./getUserInfo",
+				url:"/api/getUserInfo",
 				success : function(result){
 					result = jQuery.parseJSON(result);
 					$("#username")[0].innerHTML = result['username'];
@@ -64,11 +65,9 @@ var TT = {
 			});
 			$("#logout").click(function(){
 				location.href='https://login.flyme.cn/sso/logout?useruri=http://corpus.tx-tools.meizu.com/system_info.html'
-			})*/
+			})
 		});
 		$(".footer").load("/media/include/footer.html");
-
-		//初始化用户名
 		
 	},
 	table : function(title,thName,param,style,apiUrl){

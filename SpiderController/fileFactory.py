@@ -1,3 +1,6 @@
+import os
+import json
+
 def spiderFile(base,name,startUrl,param,item,href):
     #write to SpiderFile
     spfile = open(base+name+'\\'+name+'\\spiders\\'+name+'_spider.py', 'w')
@@ -70,6 +73,23 @@ ITEM_PIPELINES = {
     baseData = baseData %(name,name,name,name,name.capitalize())
     settingfile.write(baseData)
     settingfile.close()
+
+def itemFile(sp):
+    #fix file
+    data = sp.param
+    name = sp.name
+    base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
+    output = open(base+name+'\\'+name+'\\items.py', 'w')
+
+    baseData = "import scrapy\n\nclass %sItem(scrapy.Item):\n" %(name.capitalize())
+    jdata = json.loads(data)
+    param = jdata['param']
+    for i in param:
+        print i + " : " + param[i]
+        baseData += "\t%s = scrapy.Field()\n" %i
+
+    output.write(baseData)
+    output.close()
 
 def setFile(base,name,type,content):
     filepath = base;

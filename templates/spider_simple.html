@@ -12,7 +12,13 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 
+
 <body class="page-header-fixed">
+    <style type="text/css">
+        .modal {
+            color: black
+        }
+    </style>
     <div class="loader">
         <div class="loading-1"></div>
         <div class="loading-2">Loading...</div>
@@ -68,7 +74,6 @@
             <!-- BEGIN PAGE CONTAINER-->
             <div class="container-fluid">
                 <style type="text/css">
-
                 </style>
                 <!-- BEGIN PAGE HEADER-->
                 <div class="row-fluid">
@@ -83,19 +88,56 @@
                             <div class="portlet-title">
                                 <div class="caption"><i class="icon-comments"></i>爬虫列表</div>
                                 <div class="actions">
-                                    <a href="#" class="btn blue"><i class="icon-pencil"></i> 添加</a>
-                                    <div id="myModal1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true"
+                                    <a href="#addModal" class="btn blue" data-toggle="modal"><i class="icon-pencil"></i> 添加</a>
+                                    <div id="addModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true"
                                         style="display: none;">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                            <h3 id="myModalLabel1">Modal Header</h3>
+                                            <h3 id="myModalLabel1">添加爬虫</h3>
                                         </div>
+
                                         <div class="modal-body">
-                                            <p>Body goes here...</p>
+                                            <p></p>
+                                            <div class="span12" style="margin-bottom: 20px">
+                                                <h4>爬虫基本信息</h4>
+                                            </div>
+                                            <div class="span12">
+                                                <label class="control-label span2">爬虫名</label>
+                                                <input type="text" placeholder="Name" class="m-wrap small" id="newSpiderName">
+                                            </div>
+                                            <div class="span12">
+                                                <label class="control-label span2">爬虫描述</label>
+                                                <input type="text" placeholder="Other" class="m-wrap large" id="newSpiderOther">
+                                            </div>
+                                            <div class="span12" style="margin-bottom: 20px">
+                                                <h4>爬虫基本配置</h4>
+                                            </div>
+                                            <div class="span12">
+                                                <label class="control-label span2">区域匹配</label>
+                                                <input type="text" placeholder="Item" class="m-wrap large" id="newSpiderItem">
+                                            </div>
+                                            <div class="span12">
+                                                <label class="control-label span2">链接匹配</label>
+                                                <input type="text" placeholder="Href" class="m-wrap large" id="newSpiderHref">
+                                            </div>
+                                            <div class="span12">
+                                                <label class="control-label span2">起始链接</label>
+                                                <input type="text" placeholder="StartUrl" class="m-wrap large" id="newSpiderStartUrl">
+                                            </div>
+                                            <div class="span12" style="margin-bottom: 20px">
+                                                <h4 style="display:inline;margin-right: 20px;">数据项配置</h4>
+                                                <a href="#" class="btn" style="display:inline" id="addParamItem"><i class="icon-plus"></i> 添加</a>
+                                            </div>
+                                            <div id="Param">
+                                                <p></p>
+                                            </div>
+
                                         </div>
+
                                         <div class="modal-footer">
-                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                                            <button class="btn yellow">Save</button>
+
+                                            <button class="btn" data-dismiss="modal" aria-hidden="true" id="CanselNewSpider">取消</button>
+                                            <button class="btn yellow" data-dismiss="modal" aria-hidden="true" id="saveNewSpider">保存</button>
                                         </div>
                                     </div>
                                 </div>
@@ -115,6 +157,46 @@
                                     <tbody>
                                     </tbody>
                                 </table>
+                                <div id="updateModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true"
+                                    style="display: none;">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h3 id="myModalLabel1">修改爬虫</h3>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <p></p>
+                                        <div class="span12" style="margin-bottom: 20px">
+                                            <h4>爬虫基本配置</h4>
+                                        </div>
+                                        <div class="span12">
+                                            <label class="control-label span2">区域匹配</label>
+                                            <input type="text" placeholder="Item" class="m-wrap large" id="updateSpiderItem">
+                                        </div>
+                                        <div class="span12">
+                                            <label class="control-label span2">链接匹配</label>
+                                            <input type="text" placeholder="Href" class="m-wrap large" id="updateSpiderHref">
+                                        </div>
+                                        <div class="span12">
+                                            <label class="control-label span2">起始链接</label>
+                                            <input type="text" placeholder="StartUrl" class="m-wrap large" id="updateSpiderStartUrl">
+                                        </div>
+                                        <div class="span12" style="margin-bottom: 20px">
+                                            <h4 style="display:inline;margin-right: 20px;">数据项配置</h4>
+                                            <a href="#" class="btn" style="display:inline" id="adduParamItem"><i class="icon-plus"></i> 添加</a>
+                                        </div>
+                                        <div id="uParam">
+                                            <p></p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true" id="canselSpider">取消</button>
+                                        <button class="btn yellow" data-dismiss="modal" aria-hidden="true" id="updateSpider">保存</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -173,13 +255,16 @@
 
     <script>
         var y
+        var nowEditSid
         addDataItem = function (data) {
-            dstr = '<tr><td>{sid}</td><td>{name}</td><td>{other}</td><td>{status}</td><td>{datasum}</td><td>{do}</td></tr>'
+            dstr =
+                '<tr><td>{sid}</td><td>{name}</td><td>{other}</td><td>{status}</td><td>{datasum}</td><td>{do}</td></tr>'
 
 
 
             //添加可执行操作
-            Edit = '<a href="#" class="btn mini purple Edit"><i class="icon-edit"></i> 编辑</a>'
+            Edit =
+                '<a href="#updateModal" class="btn mini purple Edit" data-toggle="modal"><i class="icon-edit"></i> 编辑</a>'
             Delete = '<a href="#" class="btn mini black Delete"><i class="icon-trash"></i> 删除</a>'
             Run = '<a href="#" class="btn mini blue Run"><i class="icon-share"></i> 运行</a>'
             Stop = '<a href="#" class="btn mini red Stop"><i class="icon-share"></i> 停止</a>'
@@ -188,8 +273,7 @@
             if (data.status == 1) {
                 data.status = '<span class="label label-success">运行中</span>'
                 data.do = Stop
-            }
-            else {
+            } else {
                 data.status = '<span class="label label-danger">停止</span>'
                 data.do = Run
             }
@@ -199,6 +283,8 @@
             $("tbody").append(dstr)
 
         }
+
+        //刷新爬虫列表
         flush = function () {
             y = -1
             $.ajax({
@@ -225,13 +311,13 @@
                                 if (result.code == "1") {
                                     showMsg("运行成功")
                                     flush()
-                                }
-                                else {
+                                } else {
                                     showMsg("运行失败")
                                 }
                             }
                         });
                     })
+
                     $(".Stop").click(function () {
                         sid = this.parentNode.parentNode.children[0].innerHTML
                         $.ajax({
@@ -242,9 +328,57 @@
                                 if (result.code == "1") {
                                     showMsg("停止成功")
                                     flush()
-                                }
-                                else {
+                                } else {
                                     showMsg("停止失败")
+                                }
+                            }
+                        });
+                    })
+
+                    $(".Delete").click(function () {
+                        sid = this.parentNode.parentNode.children[0].innerHTML
+                        $.ajax({
+                            type: "GET",
+                            url: "/api/delSpider?sid=" + sid,
+                            success: function (result) {
+                                result = jQuery.parseJSON(result);
+                                if (result.code == "1") {
+                                    showMsg("删除成功")
+                                    flush()
+                                } else {
+                                    showMsg("删除失败")
+                                }
+                            }
+                        });
+                    })
+
+                    $(".Edit").click(function () {
+                        showMsg("获取数据中...")
+                        Item = $("#updateSpiderItem").attr("disabled", "disabled");
+                        Href = $("#updateSpiderHref").attr("disabled", "disabled");
+                        StartUrl = $("#updateSpiderStartUrl").attr("disabled", "disabled");
+                        $("#uParam").empty()
+                        $("#uParam").append("<p></p>")
+
+                        sid = this.parentNode.parentNode.children[0].innerHTML
+                        nowEditSid = sid
+                        $.ajax({
+                            type: "GET",
+                            url: "/api/getSpiderSetting?sid=" + sid,
+                            success: function (result) {
+                                showMsg("获取成功")
+                                result = jQuery.parseJSON(result);
+                                Item = $("#updateSpiderItem").val(result.item)
+                                Href = $("#updateSpiderHref").val(result.href)
+                                StartUrl = $("#updateSpiderStartUrl").val(result.startUrl)
+
+                                Item = $("#updateSpiderItem").removeAttr("disabled")
+                                Href = $("#updateSpiderHref").removeAttr("disabled")
+                                StartUrl = $("#updateSpiderStartUrl").removeAttr("disabled")
+
+                                for(i in result.param){
+                                    data = '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small uparam" value="'+i+'"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large uparam" value="'+result.param[i]+'"></div></div>'
+                                    $("#uParam").append(data)
                                 }
                             }
                         });
@@ -252,12 +386,125 @@
                 }
             });
         }
+
+        //按钮点击事件初始化
+        btnInit = function () {
+            //添加Item
+            $("#addParamItem").click(function () {
+                data =
+                    '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param"></div></div>'
+                $("#Param").append(data)
+            })
+            //添加Item
+            $("#adduParamItem").click(function () {
+                data =
+                    '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small uparam"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large uparam"></div></div>'
+                $("#uParam").append(data)
+            })
+
+            //新建爬虫
+            $("#saveNewSpider").click(function () {
+                Name = $("#newSpiderName").val()
+                Other = $("#newSpiderOther").val()
+                Item = $("#newSpiderItem").val()
+                Href = $("#newSpiderHref").val()
+                StartUrl = $("#newSpiderStartUrl").val()
+                p = $(".param")
+                list = {}
+                for (i = 0; i < p.length; i += 2) {
+                    if (p[i].value == "" || p[i + 1].value == "") {
+                        continue
+                    }
+                    list[p[i].value] = p[i + 1].value
+                }
+
+                paramdata = {
+                    "item": Item,
+                    "href": Href,
+                    "startUrl": StartUrl,
+                    "param": list
+                }
+                paramdata = JSON.stringify(paramdata);
+                data = {
+                    "name": Name,
+                    "other": Other,
+                    "param": paramdata
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/createSpider",
+                    data: data,
+                    success: function (result) {
+                        result = jQuery.parseJSON(result);
+                        if (result.code == "1") {
+                            showMsg("新建成功")
+                            flush()
+                        } else {
+                            showMsg("新建失败")
+                        }
+                    }
+                });
+            })
+
+            //修改爬虫
+            $("#updateSpider").click(function () {
+                Item = $("#updateSpiderItem").val()
+                Href = $("#updateSpiderHref").val()
+                StartUrl = $("#updateSpiderStartUrl").val()
+                p = $(".uparam")
+                list = {}
+                for (i = 0; i < p.length; i += 2) {
+                    if (p[i].value == "" || p[i + 1].value == "") {
+                        continue
+                    }
+                    list[p[i].value] = p[i + 1].value
+                }
+
+                paramdata = {
+                    "item": Item,
+                    "href": Href,
+                    "startUrl": StartUrl,
+                    "param": list
+                }
+                paramdata = JSON.stringify(paramdata);
+                data = {
+                    "sid": nowEditSid,
+                    "param": paramdata
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/saveSpiderItem",
+                    data: data,
+                    success: function (result) {
+                        result = jQuery.parseJSON(result);
+                        if (result.code == "1") {
+                            showMsg("修改成功")
+                            flush()
+                        } else {
+                            showMsg("修改失败")
+                        }
+                    }
+                });
+            })
+        }
+
+        //刷新添加爬虫模态框的数据
+        flushNewSpiderModel = function () {
+            $("#newSpiderName").val("")
+            $("#newSpiderOther").val("")
+            $("#newSpiderItem").val("")
+            $("#newSpiderHref").val("")
+            $("#Param").empty()
+            $("#Param").append("<p></p>")
+        }
+
         jQuery(document).ready(function () {
 
             App.init();
             TT.init();
 
             flush()
+            btnInit()
         });
     </script>
     <!-- END JAVASCRIPTS -->

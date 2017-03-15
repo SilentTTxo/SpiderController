@@ -1,0 +1,67 @@
+2017-03-14 17:17:14 [scrapy.utils.log] INFO: Scrapy 1.3.0 started (bot: S1)
+2017-03-14 17:17:14 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'S1.spiders', 'SPIDER_MODULES': ['S1.spiders'], 'BOT_NAME': 'S1'}
+2017-03-14 17:17:14 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2017-03-14 17:17:14 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-03-14 17:17:14 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-03-14 17:17:14 [scrapy.middleware] INFO: Enabled item pipelines:
+['S1.pipelines.S1Pipeline']
+2017-03-14 17:17:14 [scrapy.core.engine] INFO: Spider opened
+2017-03-14 17:17:14 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-03-14 17:17:14 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6024
+2017-03-14 17:17:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-model.html> (referer: None)
+2017-03-14 17:17:14 [scrapy.core.scraper] ERROR: Spider error processing <GET http://www.runoob.com/django/django-model.html> (referer: None)
+Traceback (most recent call last):
+  File "c:\python27\lib\site-packages\scrapy-1.3.0-py2.7.egg\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "c:\python27\lib\site-packages\scrapy-1.3.0-py2.7.egg\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "c:\python27\lib\site-packages\scrapy-1.3.0-py2.7.egg\scrapy\spidermiddlewares\referer.py", line 22, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "c:\python27\lib\site-packages\scrapy-1.3.0-py2.7.egg\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "c:\python27\lib\site-packages\scrapy-1.3.0-py2.7.egg\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\py\SpiderController\S1\S1\spiders\S1_spider.py", line 12, in parse
+    item["H2"] = i.css("h2::text")[0].extract()
+  File "c:\python27\lib\site-packages\parsel-1.1.0-py2.7.egg\parsel\selector.py", line 58, in __getitem__
+    o = super(SelectorList, self).__getitem__(pos)
+IndexError: list index out of range
+2017-03-14 17:17:14 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-03-14 17:17:14 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 236,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 32895,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 3, 14, 9, 17, 14, 966000),
+ 'log_count/DEBUG': 2,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 7,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'spider_exceptions/IndexError': 1,
+ 'start_time': datetime.datetime(2017, 3, 14, 9, 17, 14, 534000)}
+2017-03-14 17:17:14 [scrapy.core.engine] INFO: Spider closed (finished)

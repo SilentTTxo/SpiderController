@@ -38,6 +38,7 @@ def spiderFactoryUpdate(sp):
     base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
 
     spiderFile(base,name,startUrl,param,item,href)
+    itemFile(sp)
     pipelinesFile(base,name)
     settingFile(base,name)
     
@@ -61,8 +62,15 @@ def countSpiderData(sp):
     return count
 #####  spiderApi
 
+@csrf_exempt
 def createSpider(request):
-    name = request.GET['name']
+    name = request.POST['name']
+    other = request.POST['other']
+    param = request.POST['param']
+    uid = request.session.get('uid',-1)
+    
+    if(uid == -1):
+        return HttpResponse(json.dumps({"code":0,"msg":"please login"}))
 
     try:
         temp = Spider.objects.get(name = name)
@@ -72,7 +80,7 @@ def createSpider(request):
     code = os.system("scrapy startproject "+name)
     rs = {"code":1}
 
-    sp = Spider.objects.create(name = name,uid=-1,param='-1')
+    sp = Spider.objects.create(name = name,uid=uid,param=param,other = other)
     spiderFactoryUpdate(sp)
     return HttpResponse(json.dumps(rs))
 
@@ -82,21 +90,6 @@ def saveSpiderItem(request):
     sid = request.POST['sid']
     data = request.POST['param']
     sp = Spider.objects.get(id=sid)
-    name = sp.name
-
-    #fix file
-    base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
-    output = open(base+name+'\\'+name+'\\items.py', 'w')
-
-    baseData = "import scrapy\n\nclass %sItem(scrapy.Item):\n" %(name.capitalize())
-    jdata = json.loads(data)
-    param = jdata['param']
-    for i in param:
-        print i + " : " + param[i]
-        baseData += "\t%s = scrapy.Field()\n" %i
-
-    output.write(baseData)
-    output.close()
 
     #save to mysql
     sp.param = data

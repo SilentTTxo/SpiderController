@@ -8,6 +8,7 @@ import signal
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import StreamingHttpResponse
 
 from SpiderModel.models import *
 from fileFactory import *
@@ -19,7 +20,10 @@ def getSystemInfo(request):
     rs = {"CPU":getCPUstate(),"RAM":getMemorystate(),"NET":getNetsate()}
     return HttpResponse(json.dumps(rs))
 
-######  spiderfun
+
+
+
+#########################################################################      spiderfun       ###############################################################################
 
 def spiderFactoryUpdate(sp):
     name = sp.name
@@ -60,7 +64,12 @@ def countSpiderData(sp):
     for count, line in enumerate(open(thefilepath, 'rU')):
         pass
     return count
-#####  spiderApi
+
+
+
+
+
+#########################################################################      spiderApi       ###############################################################################
 
 @csrf_exempt
 def createSpider(request):
@@ -179,6 +188,35 @@ def getDataCount(request):
 
     return HttpResponse(json.dumps({"code":1,"count":count}))
 
+def getSpiderLog(request):
+    sp = Spider.objects.get(id = request.GET['sid'])
+    log = ReadLog(sp,100)
+
+    return HttpResponse(json.dumps({"code":1,"log":log,"sum":len(log)}))
+
+def getSpiderData(request):
+    sp = Spider.objects.get(id = request.GET['sid'])
+    data = ReadData(sp,100)
+
+    return HttpResponse(json.dumps({"code":1,"data":data,"sum":len(data)}))
+
+def getSpiderFile(request):
+    sp = Spider.objects.get(id = request.GET['sid'])
+    type = request.GET['type']
+    file = getFile(sp.name,int(type))
+
+    return HttpResponse(json.dumps({"code":1,"file":file}))
+
+@csrf_exempt
+def setSpiderFile(request):
+    sp = Spider.objects.get(id = request.POST['sid'])
+    type = request.POST['type']
+    content = request.POST['content']
+
+    code = saveFile(sp.name,int(type),content)
+
+    return HttpResponse(json.dumps({"code":code}))
+
 @csrf_exempt
 def setSpiderSettingByUser(request):
     sp = Spider.objects.get(id = request.POST['sid'])
@@ -200,7 +238,40 @@ def getSpiderSettingByUser(request):
 
     return HttpResponse(json.dumps({"code":1,"content":content}))
 
-###### userApi
+def spiderDataDownload(request):
+    sp = Spider.objects.get(id = request.GET['sid'])
+
+    path =  os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + sp.name + ".json"
+
+    def file_iterator(file_name, chunk_size=512):
+        with open(path) as f:
+            while True:
+                c = f.read(chunk_size)
+                if c:
+                    yield c
+                else:
+                    break
+
+    the_file_name = sp.name + ".json"
+    response = StreamingHttpResponse(file_iterator(the_file_name))
+    response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = 'attachment;filename="{0}"'.format(the_file_name)
+
+    return response
+
+def spiderDataDelete(request):
+    sp = Spider.objects.get(id = request.GET['sid'])
+    path =  os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + sp.name + ".json"
+
+    os.remove(path)
+
+    return HttpResponse(json.dumps({"code":1}))
+
+
+
+
+#########################################################################      userApi       ###############################################################################
+
 @csrf_exempt
 def userlogin(request):
     username = request.POST.get('username',-1)

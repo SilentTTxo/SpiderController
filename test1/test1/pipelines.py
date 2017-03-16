@@ -10,6 +10,6 @@ class Test1Pipeline(object):
 		self.file = codecs.open("..\\data\\test1.json","w",encoding="utf-8")
 
 	def process_item(self, item, spider):
-		line = json.dumps(dict(item), ensure_ascii=False)
-		self.file.write(line+"\n")
+		linee = json.dumps(dict(item), ensure_ascii=False)
+		self.file.write(linee+"\n")
 		return item

@@ -3,7 +3,7 @@ from scrapy.utils.url import urljoin_rfc
 from scrapy.utils.response import get_base_url
 from test1.items import Test1Item
 
-class Test1Spider(scrapy.Spider):
+class YongzheSpider(scrapy.Spider):
 	name="test1"
 	start_urls = ["http://www.runoob.com/django/django-model.html"]
 	def parse(self,response):

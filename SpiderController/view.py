@@ -11,5 +11,17 @@ def system_info(request):
 def spider_simple(request):
     return render(request,'spider_simple.html')
 
+@isLogin
+def spider_log(request):
+    return render(request,'spider_log.html')
+
+@isLogin
+def spider_manual(request):
+    return render(request,'spider_manual.html')
+
+@isLogin
+def data_list(request):
+    return render(request,'data_list.html')
+
 def login(request):
     return render(request,'login.html')

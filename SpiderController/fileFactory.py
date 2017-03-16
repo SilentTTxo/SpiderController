@@ -91,28 +91,16 @@ def itemFile(sp):
     output.write(baseData)
     output.close()
 
-def setFile(base,name,type,content):
-    filepath = base;
-    if(type == 0): #spider
+def getFile(name,type):
+    path = os.path.dirname(os.path.dirname(__file__)) + "\\"
+    filepath = path;
+    if(type == 1): #spider
         filepath += name + "\\"+name+"\\spiders\\"+name+"_spider.py"
-    if(type == 1): #piplines
+    if(type == 2): #piplines
         filepath += name + "\\"+name+"\\pipelines.py"
-    if(type == 2): #setting
-        filepath += name + "\\"+name+"\\settings.py"
-    
-    file = open(filepath,'w')
-    file.write(content)
-    file.close()
-    
-    return 1
-
-def getFile(base,name,type):
-    filepath = base;
-    if(type == 0): #spider
-        filepath += name + "\\"+name+"\\spiders\\"+name+"_spider.py"
-    if(type == 1): #piplines
-        filepath += name + "\\"+name+"\\pipelines.py"
-    if(type == 2): #setting
+    if(type == 3): #items
+        filepath += name + "\\"+name+"\\items.py"
+    if(type == 4): #setting
         filepath += name + "\\"+name+"\\settings.py"
     
     file = open(filepath,'r')
@@ -120,6 +108,24 @@ def getFile(base,name,type):
     file.close()
     
     return content
+
+def saveFile(name,type,content):
+    path = os.path.dirname(os.path.dirname(__file__)) + "\\"
+    filepath = path;
+    if(type == 1): #spider
+        filepath += name + "\\"+name+"\\spiders\\"+name+"_spider.py"
+    if(type == 2): #piplines
+        filepath += name + "\\"+name+"\\pipelines.py"
+    if(type == 3): #items
+        filepath += name + "\\"+name+"\\items.py"
+    if(type == 4): #setting
+        filepath += name + "\\"+name+"\\settings.py"
+    
+    file = open(filepath,'w')
+    file.write(content)
+    file.close()
+    
+    return 1
 
 def formatSize(bytes):
     try:
@@ -137,3 +143,37 @@ def formatSize(bytes):
             return "%.2f M" % (M)
     else:
         return "%.2f kb" % (kb)
+
+def ReadLog(sp,lines):
+    path = os.path.dirname(os.path.dirname(__file__)) + "\\log\\" + sp.name + ".log"
+    with open(path, 'r') as f:  
+        first_line = f.readline()
+        f.seek(0,2)
+        sum = f.tell() 
+        off = -10
+        data = -1   
+        while True:
+            f.seek(off, 2) 
+            l = f.readlines()
+            if len(l)>=lines or off * -1 > sum / 2:
+                data = l[1-len(l):] 
+                break
+            off *= 2
+    return data
+
+def ReadData(sp,lines):
+    path = os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + sp.name + ".json"
+    with open(path, 'r') as f:  
+        first_line = f.readline()
+        f.seek(0,2)
+        sum = f.tell() 
+        off = -10
+        data = -1   
+        while True:
+            f.seek(off, 2) 
+            l = f.readlines()
+            if len(l)>=lines or off * -1 > sum / 2:
+                data = l[1-len(l):] 
+                break
+            off *= 2
+    return data

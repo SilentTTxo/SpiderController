@@ -1,10 +1,10 @@
-2017-03-14 17:17:15 [scrapy.utils.log] INFO: Scrapy 1.3.0 started (bot: test1)
-2017-03-14 17:17:15 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'test1.spiders', 'SPIDER_MODULES': ['test1.spiders'], 'BOT_NAME': 'test1'}
-2017-03-14 17:17:15 [scrapy.middleware] INFO: Enabled extensions:
+2017-03-16 16:14:23 [scrapy.utils.log] INFO: Scrapy 1.3.0 started (bot: test1)
+2017-03-16 16:14:23 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'test1.spiders', 'SPIDER_MODULES': ['test1.spiders'], 'BOT_NAME': 'test1'}
+2017-03-16 16:14:23 [scrapy.middleware] INFO: Enabled extensions:
 ['scrapy.extensions.logstats.LogStats',
  'scrapy.extensions.telnet.TelnetConsole',
  'scrapy.extensions.corestats.CoreStats']
-2017-03-14 17:17:15 [scrapy.middleware] INFO: Enabled downloader middlewares:
+2017-03-16 16:14:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
 ['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
  'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
  'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
@@ -15,56 +15,56 @@
  'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
  'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
  'scrapy.downloadermiddlewares.stats.DownloaderStats']
-2017-03-14 17:17:15 [scrapy.middleware] INFO: Enabled spider middlewares:
+2017-03-16 16:14:23 [scrapy.middleware] INFO: Enabled spider middlewares:
 ['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
  'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
  'scrapy.spidermiddlewares.referer.RefererMiddleware',
  'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
  'scrapy.spidermiddlewares.depth.DepthMiddleware']
-2017-03-14 17:17:15 [scrapy.middleware] INFO: Enabled item pipelines:
+2017-03-16 16:14:23 [scrapy.middleware] INFO: Enabled item pipelines:
 ['test1.pipelines.Test1Pipeline']
-2017-03-14 17:17:15 [scrapy.core.engine] INFO: Spider opened
-2017-03-14 17:17:15 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
-2017-03-14 17:17:15 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
-2017-03-14 17:17:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-model.html> (referer: None)
-2017-03-14 17:17:15 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-model.html>
+2017-03-16 16:14:23 [scrapy.core.engine] INFO: Spider opened
+2017-03-16 16:14:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-03-16 16:14:23 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-03-16 16:14:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-model.html> (referer: None)
+2017-03-16 16:14:23 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-model.html>
 {'H2': u'Django \u6a21\u578b'}
-2017-03-14 17:17:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-nginx-uwsgi.html> (referer: http://www.runoob.com/django/django-model.html)
-2017-03-14 17:17:15 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-nginx-uwsgi.html>
+2017-03-16 16:14:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-nginx-uwsgi.html> (referer: http://www.runoob.com/django/django-model.html)
+2017-03-16 16:14:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-model.html> (referer: http://www.runoob.com/django/django-model.html)
+2017-03-16 16:14:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-first-app.html> (referer: http://www.runoob.com/django/django-model.html)
+2017-03-16 16:14:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-install.html> (referer: http://www.runoob.com/django/django-model.html)
+2017-03-16 16:14:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-template.html> (referer: http://www.runoob.com/django/django-model.html)
+2017-03-16 16:14:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-admin-manage-tool.html> (referer: http://www.runoob.com/django/django-model.html)
+2017-03-16 16:14:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-form.html> (referer: http://www.runoob.com/django/django-model.html)
+2017-03-16 16:14:24 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-nginx-uwsgi.html>
 {'H2': u'Django Nginx+uwsgi \u5b89\u88c5\u914d\u7f6e'}
-2017-03-14 17:17:15 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET http://www.runoob.com/django/django-tutorial.html> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
-2017-03-14 17:17:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-first-app.html> (referer: http://www.runoob.com/django/django-model.html)
-2017-03-14 17:17:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-admin-manage-tool.html> (referer: http://www.runoob.com/django/django-model.html)
-2017-03-14 17:17:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-form.html> (referer: http://www.runoob.com/django/django-model.html)
-2017-03-14 17:17:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-tutorial.html> (referer: http://www.runoob.com/django/django-model.html)
-2017-03-14 17:17:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-install.html> (referer: http://www.runoob.com/django/django-model.html)
-2017-03-14 17:17:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-model.html> (referer: http://www.runoob.com/django/django-model.html)
-2017-03-14 17:17:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-template.html> (referer: http://www.runoob.com/django/django-model.html)
-2017-03-14 17:17:16 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-first-app.html>
-{'H2': u'Django \u521b\u5efa\u7b2c\u4e00\u4e2a\u9879\u76ee'}
-2017-03-14 17:17:16 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-admin-manage-tool.html>
-{'H2': u'Django Admin \u7ba1\u7406\u5de5\u5177'}
-2017-03-14 17:17:16 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-form.html>
-{'H2': u'Django \u8868\u5355'}
-2017-03-14 17:17:16 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-tutorial.html>
-{'H2': u'Django \u6559\u7a0b'}
-2017-03-14 17:17:16 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-install.html>
-{'H2': u'Django \u5b89\u88c5'}
-2017-03-14 17:17:16 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-model.html>
+2017-03-16 16:14:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.runoob.com/django/django-tutorial.html> (referer: http://www.runoob.com/django/django-model.html)
+2017-03-16 16:14:24 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET http://www.runoob.com/django/django-tutorial.html> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2017-03-16 16:14:24 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-model.html>
 {'H2': u'Django \u6a21\u578b'}
-2017-03-14 17:17:16 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-template.html>
+2017-03-16 16:14:24 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-first-app.html>
+{'H2': u'Django \u521b\u5efa\u7b2c\u4e00\u4e2a\u9879\u76ee'}
+2017-03-16 16:14:24 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-install.html>
+{'H2': u'Django \u5b89\u88c5'}
+2017-03-16 16:14:24 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-template.html>
 {'H2': u'Django \u6a21\u677f'}
-2017-03-14 17:17:16 [scrapy.core.engine] INFO: Closing spider (finished)
-2017-03-14 17:17:16 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+2017-03-16 16:14:24 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-admin-manage-tool.html>
+{'H2': u'Django Admin \u7ba1\u7406\u5de5\u5177'}
+2017-03-16 16:14:24 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-form.html>
+{'H2': u'Django \u8868\u5355'}
+2017-03-16 16:14:24 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.runoob.com/django/django-tutorial.html>
+{'H2': u'Django \u6559\u7a0b'}
+2017-03-16 16:14:24 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-03-16 16:14:24 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
 {'downloader/request_bytes': 2609,
  'downloader/request_count': 9,
  'downloader/request_method_count/GET': 9,
- 'downloader/response_bytes': 290695,
+ 'downloader/response_bytes': 290328,
  'downloader/response_count': 9,
  'downloader/response_status_count/200': 9,
  'dupefilter/filtered': 64,
  'finish_reason': 'finished',
- 'finish_time': datetime.datetime(2017, 3, 14, 9, 17, 16, 170000),
+ 'finish_time': datetime.datetime(2017, 3, 16, 8, 14, 24, 477000),
  'item_scraped_count': 9,
  'log_count/DEBUG': 20,
  'log_count/INFO': 7,
@@ -74,5 +74,5 @@
  'scheduler/dequeued/memory': 9,
  'scheduler/enqueued': 9,
  'scheduler/enqueued/memory': 9,
- 'start_time': datetime.datetime(2017, 3, 14, 9, 17, 15, 389000)}
-2017-03-14 17:17:16 [scrapy.core.engine] INFO: Spider closed (finished)
+ 'start_time': datetime.datetime(2017, 3, 16, 8, 14, 23, 668000)}
+2017-03-16 16:14:24 [scrapy.core.engine] INFO: Spider closed (finished)

@@ -17,6 +17,8 @@ urlpatterns = [
     url(r'^view/spider_log.html', spider_log),
     url(r'^view/spider_manual.html', spider_manual),
     url(r'^view/data_list.html', data_list),
+    url(r'^view/admin_userlist.html', admin_userlist),
+    url(r'^view/admin_power.html', admin_power),
 
     #spider api
     url(r'^api/getSystemInfo$', getSystemInfo),
@@ -41,4 +43,6 @@ urlpatterns = [
     url(r'^api/userlogin', userlogin),
     url(r'^api/userregist', userregist),
     url(r'^api/getUserInfo', getUserInfo),
+    url(r'^api/getAllUser', getAllUser),
+    url(r'^api/fixUserPower', fixUserPower),
 ]

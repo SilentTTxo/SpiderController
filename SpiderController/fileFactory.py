@@ -16,7 +16,9 @@ def spiderFile(base,name,startUrl,param,item,href):
             baseData += '\t\tfor i in response.css("%s"):\n' %item +\
             "\t\t\titem = %sItem()\n" %name.capitalize() 
             for i in param:
-                baseData += '\t\t\titem["%s"] = i.css("%s")[0].extract()\n' %(i,param[i])
+                baseData += '\t\t\ttry:\n'
+                baseData += '\t\t\t\titem["%s"] = i.css("%s")[0].extract()\n' %(i,param[i])
+                baseData += '\t\t\texcept:\n\t\t\t\tpass\n'
             baseData += "\t\t\tyield item\n"
 
         if(href != -1):
@@ -50,6 +52,8 @@ class %sPipeline(object):
 
 	def process_item(self, item, spider):
 		line = json.dumps(dict(item), ensure_ascii=False)
+		if(line == "{}"):
+			return item
 		self.file.write(line+"\\n")
 		return item
 """

@@ -314,3 +314,19 @@ def getUserInfo(request):
     data = {"id":request.session['uid'],"username":request.session['username'],"power":request.session['power']}
 
     return HttpResponse(json.dumps(data))
+
+def getAllUser(request):
+    user = User.objects.all()
+    data = {"code":1,"data":[]}
+    for i in user:
+        item = {"id":i.id,"username":i.username,"power":i.power}
+        data['data'].append(item)
+    
+    return HttpResponse(json.dumps(data))
+
+def fixUserPower(request):
+    u = User.objects.get(id = request.GET['id'])
+    u.power = request.GET['power']
+    u.save()
+
+    return HttpResponse(json.dumps({"code":1}))

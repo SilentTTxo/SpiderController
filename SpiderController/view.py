@@ -23,5 +23,13 @@ def spider_manual(request):
 def data_list(request):
     return render(request,'data_list.html')
 
+@isLogin
+def admin_userlist(request):
+    return render(request,'admin_userlist.html')
+
+@isLogin
+def admin_power(request):
+    return render(request,'admin_power.html')
+
 def login(request):
     return render(request,'login.html')

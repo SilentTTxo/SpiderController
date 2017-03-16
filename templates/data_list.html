@@ -255,7 +255,7 @@
                         sid = this.parentNode.parentNode.children[0].innerHTML
                         $.ajax({
                             type: "GET",
-                            url: "/api/delSpider?sid=" + sid,
+                            url: "/api/spiderDataDelete?sid=" + sid,
                             success: function (result) {
                                 result = jQuery.parseJSON(result);
                                 if (result.code == "1") {

@@ -9,6 +9,8 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import StreamingHttpResponse
+import urllib2
+import chardet
 
 from SpiderModel.models import *
 from fileFactory import *
@@ -330,3 +332,15 @@ def fixUserPower(request):
     u.save()
 
     return HttpResponse(json.dumps({"code":1}))
+
+#########################################################################      otherApi       ###############################################################################
+
+def getHtmlPage(request):
+    url = request.GET['url']
+    response = urllib2.urlopen(url)
+    html = response.read()
+    type = sys.getfilesystemencoding()
+    chardit = chardet.detect(html)
+    html = html.decode(chardit['encoding']).encode('utf-8')
+
+    return HttpResponse(html)

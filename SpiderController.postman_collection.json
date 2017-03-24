@@ -1,0 +1,559 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SpiderController",
+		"_postman_id": "fb31e920-64c6-5f40-7d99-2c37576f2030",
+		"description": "毕设",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getSystemInfo",
+			"request": {
+				"url": "http://localhost:11111/api/getSystemInfo",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refund_status",
+							"value": "2",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "获取系统信息"
+			},
+			"response": []
+		},
+		{
+			"name": "createSpider",
+			"request": {
+				"url": "http://localhost:11111/api/createSpider",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refund_status",
+							"value": "2",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "saveSpiderItem",
+			"request": {
+				"url": "http://localhost:11111/api/saveSpiderItem",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"#content > h1\",\"href\":\"#leftcolumn > a::attr(href)\",\"startUrl\":\"http://www.runoob.com/django/django-model.html\",\"param\":{\"H2\":\"h1::text\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSpiderSetting",
+			"request": {
+				"url": "http://localhost:11111/api/getSpiderSetting?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "userregist",
+			"request": {
+				"url": "http://localhost:11111/api/userregist",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "TT",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "a132132",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "userlogin",
+			"request": {
+				"url": "http://localhost:11111/api/userlogin",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "TT",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "a132132",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "runSpider",
+			"request": {
+				"url": "http://localhost:11111/api/runSpider?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "stopSpider",
+			"request": {
+				"url": "http://localhost:11111/api/stopSpider?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSpiderInfo",
+			"request": {
+				"url": "http://localhost:11111/api/getSpiderInfo",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "TT",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "a132132",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delSpider",
+			"request": {
+				"url": "http://localhost:11111/api/delSpider?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getDataCount",
+			"request": {
+				"url": "http://localhost:11111/api/getDataCount?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSpiderSettingByUser",
+			"request": {
+				"url": "http://localhost:11111/api/getSpiderSettingByUser",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "sid=26&type=0"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createSpider",
+			"request": {
+				"url": "http://localhost:11111/api/createSpider",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refund_status",
+							"value": "2",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSpiderLog",
+			"request": {
+				"url": "http://localhost:11111/api/getSpiderLog?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSpiderFile",
+			"request": {
+				"url": "http://localhost:11111/api/getSpiderFile?sid=26&type=1",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "setSpiderFile",
+			"request": {
+				"url": "http://localhost:11111/api/setSpiderFile",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "content",
+							"value": "import scrapy\\nfrom scrapy.utils.url import urljoin_rfc\\nfrom scrapy.utils.response import get_base_url\\nfrom test1.items import Test1Item\\n\\nclass Test1Spider(scrapy.Spider):\\n\\tname=\\\"test1\\\"\\n\\tstart_urls = [\\\"http://www.runoob.com/django/django-model.html\\\"]\\n\\tdef parse(self,response):\\n\\t\\tfor i in response.css(\\\"#content > h1\\\"):\\n\\t\\t\\titem = Test1Item()\\n\\t\\t\\titem[\\\"H2\\\"] = i.css(\\\"h1::text\\\")[0].extract()\\n\\t\\t\\tyield item\\n\\t\\tfor href in response.css(\\\"#leftcolumn > a::attr(href)\\\"):\\n\\t\\t\\turl = href.extract()\\n\\t\\t\\turl = urljoin_rfc(get_base_url(response), url)\\n\\t\\t\\tyield scrapy.Request(urll)\\n",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSpiderData",
+			"request": {
+				"url": "http://localhost:11111/api/getSpiderData?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "spiderDataDownload",
+			"request": {
+				"url": "http://localhost:11111/api/spiderDataDownload?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "spiderDataDelete",
+			"request": {
+				"url": "http://localhost:11111/api/spiderDataDelete?sid=26",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUser",
+			"request": {
+				"url": "http://localhost:11111/api/getAllUser",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getHtmlPage",
+			"request": {
+				"url": "http://localhost:11111/api/getHtmlPage?url",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sid",
+							"value": "26",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "param",
+							"value": "{\"item\":\"css\",\"href\":\"css\",\"startUrl\":\"url\",\"param\":{\"yooo\":\"1\",\"yu\":\"2\"}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

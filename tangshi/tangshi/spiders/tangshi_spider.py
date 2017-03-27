@@ -10,10 +10,7 @@ class TangshiSpider(scrapy.Spider):
 		for i in response.css(".shileft"):
 			item = TangshiItem()
 			try:
-				data = ""
-				for g in i.css("#cont::text"):
-					data += g.extract().replace('\n','')
-				item["content"] = data
+				item["content"] = i.css("#cont::text")[0].extract()
 			except:
 				pass
 			try:

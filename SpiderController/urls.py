@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^view/spider_simple.html', spider_simple),
     url(r'^view/spider_log.html', spider_log),
     url(r'^view/spider_manual.html', spider_manual),
+    url(r'^view/spider_auto.html', spider_auto),
     url(r'^view/data_list.html', data_list),
     url(r'^view/admin_userlist.html', admin_userlist),
     url(r'^view/admin_power.html', admin_power),
@@ -39,6 +40,9 @@ urlpatterns = [
     url(r'^api/spiderDataDelete$', spiderDataDelete),
     url(r'^api/setSpiderSettingByUser$', setSpiderSettingByUser),
     url(r'^api/getSpiderSettingByUser$', getSpiderSettingByUser),
+
+    #data api
+    url(r'^api/DataTransformatDownload$', DataTransformatDownload),
 
     #user api
     url(r'^api/userlogin', userlogin),

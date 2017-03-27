@@ -20,6 +20,10 @@ def spider_manual(request):
     return render(request,'spider_manual.html')
 
 @isLogin
+def spider_auto(request):
+    return render(request,'spider_auto.html')
+
+@isLogin
 def data_list(request):
     return render(request,'data_list.html')
 

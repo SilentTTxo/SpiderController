@@ -1,5 +1,11 @@
+# coding=utf-8
+import sys
 import os
+import codecs
+
 import json
+import csv
+import xlwt
 
 def spiderFile(base,name,startUrl,param,item,href):
     #write to SpiderFile
@@ -181,3 +187,129 @@ def ReadData(sp,lines):
                 break
             off *= 2
     return data
+
+def json2txt(oripath,targetpath):
+    reload(sys)   
+    sys.setdefaultencoding('utf8')
+
+    rdata = ""
+    head = []
+    fs = 0
+    with open(oripath, 'r') as f:
+        for line in f:
+            temp = json.loads(line)
+            for i in temp:
+                if(fs == 0):
+                    head.append(i)
+                
+                rdata += "%s\t" % temp[i]
+            fs = 1
+            rdata += "\r\n"
+    
+    print(head)
+    out = file(targetpath,"w")
+    out.write(("\t").join(head) + "\r\n\r\n" + rdata)
+    return rdata
+
+def json2csv(oripath,targetpath):
+    reload(sys)   
+    sys.setdefaultencoding('utf8')
+
+    rdata = []
+    head = []
+    fs = 0
+
+    csvfile = file(targetpath, 'w')
+    csvfile.write(codecs.BOM_UTF8)
+    writer = csv.writer(csvfile)
+
+    with open(oripath, 'r') as f:
+        for line in f:
+            temp = json.loads(line)
+            linedata = []
+            for i in temp:
+                if(fs == 0):
+                    head.append(i)
+                linedata.append(temp[i])
+            fs += 1
+            if(fs == 1):
+                writer.writerow(head)
+                writer.writerow([])
+            writer.writerow(linedata)
+    
+    return rdata
+
+# def json2xls(oripath,targetpath):
+#     reload(sys)   
+#     sys.setdefaultencoding('utf8')
+
+#     rdata = []
+#     head = []
+#     fs = 0
+
+#     workbook = xlwt.Workbook(encoding = 'utf-8')
+#     sheet = workbook.add_sheet("data")
+#     style = xlwt.XFStyle()
+#     font = xlwt.Font()
+#     font.name = 'SimSun' # 指定“宋体”
+#     style.font = font
+#     sheet.write(0,0,1)
+
+#     with open(oripath, 'r') as f:
+#         for line in f:
+#             temp = json.loads(line)
+#             linedata = []
+#             for i in temp:
+#                 if(fs == 0):
+#                     head.append(i)
+#                 linedata.append(temp[i])
+#             fs += 1
+#             if(fs == 1):
+#                 dd = 0
+#                 for i in head:
+#                     sheet.write(0,dd,i)
+#                     print ("0 %s %s" % (dd,i))
+#                 dd += 1
+#             for i in linedata:
+#                 dd = 0
+#                 sheet.write(fs,dd,i)
+#                 print ("%s %s %s" % (fs,dd,i))
+#                 dd +=1
+    
+#     workbook.save(targetpath)
+    
+#     return rdata
+
+def json2sql(oripath,targetpath):
+    reload(sys)   
+    sys.setdefaultencoding('utf8')
+
+    createTable = """
+CREATE TABLE TEMP_TABLE (
+    ID  INT AUTO_INCREMENT PRIMARY KEY,
+%s
+);
+
+"""
+    head = ""
+    insertSql = ""
+    fs = 0
+    with open(oripath, 'r') as f:
+        for line in f:
+            temp = json.loads(line)
+            rdata = []
+            for i in temp:
+                if(fs == 0):
+                    if(head == ""):
+                        head +="    %s    Text" % i
+                    else:
+                        head +=",\n    %s    Text" % i
+                rdata.append("'%s'" % temp[i].replace("\n",""))
+                #rdata += "insert into TEMP_TABLE VALUES (%s)" % 
+            insertSql += "insert into TEMP_TABLE VALUES (NULL,%s);\n" % ",".join(rdata)
+            fs = 1
+    
+    createTable = createTable % head
+    out = file(targetpath,"w")
+    out.write(createTable + insertSql)
+    return rdata

@@ -270,6 +270,50 @@ def spiderDataDelete(request):
     return HttpResponse(json.dumps({"code":1}))
 
 
+#########################################################################      dataApi       ###############################################################################
+
+def DataTransformatDownload(request):
+    sp = Spider.objects.get(id = request.GET['sid'])
+    target = int(request.GET['target']) # 0:\t text 1:csv 2:excel 3:mysql 
+    recreate = request.GET.get("recreate",0) #force refresh
+
+    if(target == 0):
+        extension = "txt"
+    if(target == 1):
+        extension = "csv"
+    if(target == 2):
+        extension = "xls"
+    if(target == 3):
+        extension = "sql"
+    oripath =  os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + sp.name + ".json"
+
+    targetpath = os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + sp.name + "." + extension
+    if(not os.path.exists(targetpath) or recreate != 0):
+        if(target == 0):
+            json2txt(oripath,targetpath)
+        if(target == 1):
+            json2csv(oripath,targetpath)
+        # if(target == 2):
+        #     json2xls(oripath,targetpath)
+        if(target == 3):
+            json2sql(oripath,targetpath)
+
+    def file_iterator(file_name, chunk_size=512):
+        with open(targetpath) as f:
+            while True:
+                c = f.read(chunk_size)
+                if c:
+                    yield c
+                else:
+                    break
+
+    the_file_name = sp.name + "." + extension
+    response = StreamingHttpResponse(file_iterator(the_file_name))
+    response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = 'attachment;filename="{0}"'.format(the_file_name)
+
+    return response
+
 
 
 #########################################################################      userApi       ###############################################################################

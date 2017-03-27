@@ -1,0 +1,157 @@
+H2
+
+什么是 HTML5？	
+HTML5 是如何起步的？	
+新特性	
+浏览器支持	
+Web 上的视频	
+视频格式	
+如何工作	
+Internet Explorer	
+<video> 标签的属性	
+相关页面	
+HTML5 <video> - 使用 DOM 进行控制	
+HTML5 <video> - 方法、属性以及事件	
+Web 上的音频	
+音频格式	
+如何工作	
+Internet Explorer	
+<audio> 标签的属性	
+相关页面	
+拖放	
+浏览器支持	
+HTML5 拖放实例	
+设置元素为可拖放	
+拖动什么 - ondragstart 和 setData()	
+放到何处 - ondragover	
+进行放置 - ondrop	
+更多实例	
+什么是 Canvas？	
+创建 Canvas 元素	
+通过 JavaScript 来绘制	
+理解坐标	
+更多 Canvas 实例	
+相关页面	
+什么是SVG？	
+SVG 的优势	
+浏览器支持	
+把 SVG 直接嵌入 HTML 页面	
+SVG	
+Canvas	
+Canvas 与 SVG 的比较	
+定位用户的位置	
+浏览器支持	
+HTML5 - 使用地理定位	
+处理错误和拒绝	
+在地图中显示结果	
+给定位置的信息	
+getCurrentPosition() 方法 - 返回数据	
+Geolocation 对象 - 其他有趣的方法	
+在客户端存储数据	
+localStorage 方法	
+sessionStorage 方法	
+什么是应用程序缓存（Application Cache）？	
+浏览器支持	
+HTML5 Cache Manifest 实例	
+Cache Manifest 基础	
+Manifest 文件	
+更新缓存	
+关于应用程序缓存的注释	
+什么是 Web Worker？	
+浏览器支持	
+HTML5 Web Workers 实例	
+检测 Web Worker 支持	
+创建 web worker 文件	
+创建 Web Worker 对象	
+终止 Web Worker	
+完整的 Web Worker 实例代码	
+Web Workers 和 DOM	
+Server-Sent 事件 - 单向消息传递	
+浏览器支持	
+接收 Server-Sent 事件通知	
+检测 Server-Sent 事件支持	
+服务器端代码实例	
+EventSource 对象	
+HTML5 新的 Input 类型	
+浏览器支持	
+Input 类型 - email	
+Input 类型 - url	
+Input 类型 - number	
+Input 类型 - range	
+Input 类型 - Date Pickers（日期选择器）	
+Input 类型 - search	
+HTML5 的新的表单元素：	
+浏览器支持	
+datalist 元素	
+keygen 元素	
+output 元素	
+HTML5 的新的表单属性	
+浏览器支持	
+autocomplete 属性	
+autofocus 属性	
+form 属性	
+表单重写属性	
+height 和 width 属性	
+list 属性	
+min、max 和 step 属性	
+multiple 属性	
+novalidate 属性	
+pattern 属性	
+placeholder 属性	
+required 属性	
+关于本测验	
+测验会被记分	
+按字母顺序排列	
+按功能类别排列	
+HTML 全局属性	
+全局事件属性	
+Window 事件属性	
+Form 事件	
+Keyboard 事件	
+Mouse 事件	
+Media 事件	
+HTML5 视频和音频的 DOM 参考手册	
+HTML5 Audio/Video 方法	
+HTML5 Audio/Video 属性	
+HTML5 Audio/Video 事件	
+描述	
+浏览器支持	
+颜色、样式和阴影	
+线条样式	
+矩形	
+路径	
+转换	
+文本	
+图像绘制	
+像素操作	
+合成	
+其他	
+HTML5/HTML 4.01/XHTML 元素和有效的 DTD	
+颜色名列表	
+HTML 字符集	
+ISO 字符集	
+Unicode 标准	
+Unicode 联盟	
+7 比特 可显示的 ASCII 代码	
+7 比特 设备控制 ASCII代码	
+带有实体名称的 ASCII 实体	
+ISO 8859-1 符号实体	
+ISO 8859-1 字符实体	
+HTML 支持的数学符号	
+HTML 支持的希腊字母	
+HTML 支持的其他实体	
+URL 编码 - 从 %00 到 %8f	
+URL 编码 - 从 %90 到 %ff	
+1xx: 信息	
+2xx: 成功	
+3xx: 重定向	
+4xx: 客户端错误	
+5xx: 服务器错误	
+ISO 语言代码	
+ISO 639-1 语言代码	
+什么是 HTTP？	
+两种 HTTP 请求方法：GET 和 POST	
+GET 方法	
+POST 方法	
+比较 GET 与 POST	
+其他 HTTP 请求方法	

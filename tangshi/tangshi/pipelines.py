@@ -10,8 +10,8 @@ class TangshiPipeline(object):
 		self.file = codecs.open("..\\data\\tangshi.json","w",encoding="utf-8")
 
 	def process_item(self, item, spider):
-		if(json.dumps(dict(item), ensure_ascii=False) == "{}"):
+		line = json.dumps(dict(item), ensure_ascii=False)
+		if(line == "{}"):
 			return item
-		line = item['author'] + '\t' + item['dynasty'] + '\t' + item['name'] + '\t' + item['content']
 		self.file.write(line+"\n")
 		return item

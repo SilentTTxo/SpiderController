@@ -1,560 +1,561 @@
-2017-03-16 19:04:38 [scrapy.utils.log] INFO: Scrapy 1.3.0 started (bot: S3)
-2017-03-16 19:04:38 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'S3.spiders', 'SPIDER_MODULES': ['S3.spiders'], 'BOT_NAME': 'S3'}
-2017-03-16 19:04:38 [scrapy.middleware] INFO: Enabled extensions:
+2017-04-17 13:32:39 [scrapy] INFO: Scrapy 1.1.2 started (bot: S3)
+2017-04-17 13:32:39 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'S3.spiders', 'SPIDER_MODULES': ['S3.spiders'], 'BOT_NAME': 'S3'}
+2017-04-17 13:32:39 [scrapy] INFO: Enabled extensions:
 ['scrapy.extensions.logstats.LogStats',
  'scrapy.extensions.telnet.TelnetConsole',
  'scrapy.extensions.corestats.CoreStats']
-2017-03-16 19:04:38 [scrapy.middleware] INFO: Enabled downloader middlewares:
+2017-04-17 13:32:39 [scrapy] INFO: Enabled downloader middlewares:
 ['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
  'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
- 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
  'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
  'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
  'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
  'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
  'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
  'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
  'scrapy.downloadermiddlewares.stats.DownloaderStats']
-2017-03-16 19:04:38 [scrapy.middleware] INFO: Enabled spider middlewares:
+2017-04-17 13:32:39 [scrapy] INFO: Enabled spider middlewares:
 ['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
  'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
  'scrapy.spidermiddlewares.referer.RefererMiddleware',
  'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
  'scrapy.spidermiddlewares.depth.DepthMiddleware']
-2017-03-16 19:04:38 [scrapy.middleware] INFO: Enabled item pipelines:
+2017-04-17 13:32:39 [scrapy] INFO: Enabled item pipelines:
 ['S3.pipelines.S3Pipeline']
-2017-03-16 19:04:38 [scrapy.core.engine] INFO: Spider opened
-2017-03-16 19:04:38 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
-2017-03-16 19:04:38 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
-2017-03-16 19:04:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_intro.asp> (referer: None)
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
+2017-04-17 13:32:39 [scrapy] INFO: Spider opened
+2017-04-17 13:32:39 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-04-17 13:32:39 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-04-17 13:32:40 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_intro.asp> (referer: None)
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
 {'H2': u'\u4ec0\u4e48\u662f HTML5\uff1f'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
 {'H2': u'HTML5 \u662f\u5982\u4f55\u8d77\u6b65\u7684\uff1f'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
 {'H2': u'\u65b0\u7279\u6027'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_intro.asp>
 {}
-2017-03-16 19:04:39 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET http://www.w3school.com.cn/html5/html_5_video.asp> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
-2017-03-16 19:04:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_video.asp> (referer: http://www.w3school.com.cn/html5/html_5_intro.asp)
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Filtered duplicate request: <GET http://www.w3school.com.cn/html5/html_5_video.asp> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2017-04-17 13:32:40 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_video.asp> (referer: http://www.w3school.com.cn/html5/html_5_intro.asp)
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {'H2': u'Web \u4e0a\u7684\u89c6\u9891'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {'H2': u'\u89c6\u9891\u683c\u5f0f'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {'H2': u'\u5982\u4f55\u5de5\u4f5c'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {'H2': u'Internet Explorer'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {'H2': u'<video> \u6807\u7b7e\u7684\u5c5e\u6027'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {'H2': u'\u76f8\u5173\u9875\u9762'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_video_dom.asp> (referer: http://www.w3school.com.cn/html5/html_5_video.asp)
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video_dom.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_video_dom.asp> (referer: http://www.w3school.com.cn/html5/html_5_video.asp)
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video_dom.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video_dom.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video_dom.asp>
 {'H2': u'HTML5 <video> - \u4f7f\u7528 DOM \u8fdb\u884c\u63a7\u5236'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video_dom.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video_dom.asp>
 {'H2': u'HTML5 <video> - \u65b9\u6cd5\u3001\u5c5e\u6027\u4ee5\u53ca\u4e8b\u4ef6'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video_dom.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_video_dom.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_audio.asp> (referer: http://www.w3school.com.cn/html5/html_5_video_dom.asp)
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_audio.asp> (referer: http://www.w3school.com.cn/html5/html_5_video_dom.asp)
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {'H2': u'Web \u4e0a\u7684\u97f3\u9891'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {'H2': u'\u97f3\u9891\u683c\u5f0f'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {'H2': u'\u5982\u4f55\u5de5\u4f5c'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {'H2': u'Internet Explorer'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {'H2': u'<audio> \u6807\u7b7e\u7684\u5c5e\u6027'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {'H2': u'\u76f8\u5173\u9875\u9762'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_audio.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_draganddrop.asp> (referer: http://www.w3school.com.cn/html5/html_5_audio.asp)
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_draganddrop.asp> (referer: http://www.w3school.com.cn/html5/html_5_audio.asp)
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {'H2': u'\u62d6\u653e'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {'H2': u'HTML5 \u62d6\u653e\u5b9e\u4f8b'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {'H2': u'\u8bbe\u7f6e\u5143\u7d20\u4e3a\u53ef\u62d6\u653e'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {'H2': u'\u62d6\u52a8\u4ec0\u4e48 - ondragstart \u548c setData()'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {'H2': u'\u653e\u5230\u4f55\u5904 - ondragover'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {'H2': u'\u8fdb\u884c\u653e\u7f6e - ondrop'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {'H2': u'\u66f4\u591a\u5b9e\u4f8b'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_draganddrop.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_canvas.asp> (referer: http://www.w3school.com.cn/html5/html_5_draganddrop.asp)
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:40 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_canvas.asp> (referer: http://www.w3school.com.cn/html5/html_5_draganddrop.asp)
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {'H2': u'\u4ec0\u4e48\u662f Canvas\uff1f'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {'H2': u'\u521b\u5efa Canvas \u5143\u7d20'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {'H2': u'\u901a\u8fc7 JavaScript \u6765\u7ed8\u5236'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {'H2': u'\u7406\u89e3\u5750\u6807'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {'H2': u'\u66f4\u591a Canvas \u5b9e\u4f8b'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {'H2': u'\u76f8\u5173\u9875\u9762'}
-2017-03-16 19:04:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas.asp>
 {}
-2017-03-16 19:04:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_svg.asp> (referer: http://www.w3school.com.cn/html5/html_5_canvas.asp)
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_svg.asp> (referer: http://www.w3school.com.cn/html5/html_5_canvas.asp)
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
 {'H2': u'\u4ec0\u4e48\u662fSVG\uff1f'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
 {'H2': u'SVG \u7684\u4f18\u52bf'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
 {'H2': u'\u628a SVG \u76f4\u63a5\u5d4c\u5165 HTML \u9875\u9762'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_svg.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp> (referer: http://www.w3school.com.cn/html5/html_5_svg.asp)
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp> (referer: http://www.w3school.com.cn/html5/html_5_svg.asp)
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
 {'H2': u'SVG'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
 {'H2': u'Canvas'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
 {'H2': u'Canvas \u4e0e SVG \u7684\u6bd4\u8f83'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_geolocation.asp> (referer: http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp)
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_geolocation.asp> (referer: http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp)
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {'H2': u'\u5b9a\u4f4d\u7528\u6237\u7684\u4f4d\u7f6e'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {'H2': u'HTML5 - \u4f7f\u7528\u5730\u7406\u5b9a\u4f4d'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {'H2': u'\u5904\u7406\u9519\u8bef\u548c\u62d2\u7edd'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {'H2': u'\u5728\u5730\u56fe\u4e2d\u663e\u793a\u7ed3\u679c'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {'H2': u'\u7ed9\u5b9a\u4f4d\u7f6e\u7684\u4fe1\u606f'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {'H2': u'getCurrentPosition() \u65b9\u6cd5 - \u8fd4\u56de\u6570\u636e'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {'H2': u'Geolocation \u5bf9\u8c61 - \u5176\u4ed6\u6709\u8da3\u7684\u65b9\u6cd5'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_geolocation.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_webstorage.asp> (referer: http://www.w3school.com.cn/html5/html_5_geolocation.asp)
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_webstorage.asp> (referer: http://www.w3school.com.cn/html5/html_5_geolocation.asp)
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
 {'H2': u'\u5728\u5ba2\u6237\u7aef\u5b58\u50a8\u6570\u636e'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
 {'H2': u'localStorage \u65b9\u6cd5'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
 {'H2': u'sessionStorage \u65b9\u6cd5'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webstorage.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_app_cache.asp> (referer: http://www.w3school.com.cn/html5/html_5_webstorage.asp)
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_app_cache.asp> (referer: http://www.w3school.com.cn/html5/html_5_webstorage.asp)
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {'H2': u'\u4ec0\u4e48\u662f\u5e94\u7528\u7a0b\u5e8f\u7f13\u5b58\uff08Application Cache\uff09\uff1f'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {'H2': u'HTML5 Cache Manifest \u5b9e\u4f8b'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {'H2': u'Cache Manifest \u57fa\u7840'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {'H2': u'Manifest \u6587\u4ef6'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {'H2': u'\u66f4\u65b0\u7f13\u5b58'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {'H2': u'\u5173\u4e8e\u5e94\u7528\u7a0b\u5e8f\u7f13\u5b58\u7684\u6ce8\u91ca'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_app_cache.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_webworkers.asp> (referer: http://www.w3school.com.cn/html5/html_5_app_cache.asp)
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:41 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_webworkers.asp> (referer: http://www.w3school.com.cn/html5/html_5_app_cache.asp)
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'\u4ec0\u4e48\u662f Web Worker\uff1f'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'HTML5 Web Workers \u5b9e\u4f8b'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'\u68c0\u6d4b Web Worker \u652f\u6301'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'\u521b\u5efa web worker \u6587\u4ef6'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'\u521b\u5efa Web Worker \u5bf9\u8c61'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'\u7ec8\u6b62 Web Worker'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'\u5b8c\u6574\u7684 Web Worker \u5b9e\u4f8b\u4ee3\u7801'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {'H2': u'Web Workers \u548c DOM'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_webworkers.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_serversentevents.asp> (referer: http://www.w3school.com.cn/html5/html_5_webworkers.asp)
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_serversentevents.asp> (referer: http://www.w3school.com.cn/html5/html_5_webworkers.asp)
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {'H2': u'Server-Sent \u4e8b\u4ef6 - \u5355\u5411\u6d88\u606f\u4f20\u9012'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {'H2': u'\u63a5\u6536 Server-Sent \u4e8b\u4ef6\u901a\u77e5'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {'H2': u'\u68c0\u6d4b Server-Sent \u4e8b\u4ef6\u652f\u6301'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {'H2': u'\u670d\u52a1\u5668\u7aef\u4ee3\u7801\u5b9e\u4f8b'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {'H2': u'EventSource \u5bf9\u8c61'}
-2017-03-16 19:04:40 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_serversentevents.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_form_input_types.asp> (referer: http://www.w3school.com.cn/html5/html_5_serversentevents.asp)
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_form_input_types.asp> (referer: http://www.w3school.com.cn/html5/html_5_serversentevents.asp)
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {'H2': u'HTML5 \u65b0\u7684 Input \u7c7b\u578b'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {'H2': u'Input \u7c7b\u578b - email'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {'H2': u'Input \u7c7b\u578b - url'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {'H2': u'Input \u7c7b\u578b - number'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {'H2': u'Input \u7c7b\u578b - range'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {'H2': u'Input \u7c7b\u578b - Date Pickers\uff08\u65e5\u671f\u9009\u62e9\u5668\uff09'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {'H2': u'Input \u7c7b\u578b - search'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_input_types.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_form_elements.asp> (referer: http://www.w3school.com.cn/html5/html_5_form_input_types.asp)
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_form_elements.asp> (referer: http://www.w3school.com.cn/html5/html_5_form_input_types.asp)
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
 {'H2': u'HTML5 \u7684\u65b0\u7684\u8868\u5355\u5143\u7d20\uff1a'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
 {'H2': u'datalist \u5143\u7d20'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
 {'H2': u'keygen \u5143\u7d20'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
 {'H2': u'output \u5143\u7d20'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_elements.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_form_attributes.asp> (referer: http://www.w3school.com.cn/html5/html_5_form_elements.asp)
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html_5_form_attributes.asp> (referer: http://www.w3school.com.cn/html5/html_5_form_elements.asp)
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'HTML5 \u7684\u65b0\u7684\u8868\u5355\u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'autocomplete \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'autofocus \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'form \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'\u8868\u5355\u91cd\u5199\u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'height \u548c width \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'list \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'min\u3001max \u548c step \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'multiple \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'novalidate \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'pattern \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'placeholder \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {'H2': u'required \u5c5e\u6027'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html_5_form_attributes.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html5_quiz.asp> (referer: http://www.w3school.com.cn/html5/html_5_form_attributes.asp)
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/html5/html5_quiz.asp> (referer: http://www.w3school.com.cn/html5/html_5_form_attributes.asp)
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
 {'H2': u'\u5173\u4e8e\u672c\u6d4b\u9a8c'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
 {'H2': u'\u6d4b\u9a8c\u4f1a\u88ab\u8bb0\u5206'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/html5/html5_quiz.asp>
 {}
-2017-03-16 19:04:41 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.w3school.com.cn/tags/index.asp> from <GET http://www.w3school.com.cn/html5/html5_reference.asp>
-2017-03-16 19:04:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/index.asp> (referer: http://www.w3school.com.cn/html5/html5_quiz.asp)
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/index.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Redirecting (301) to <GET http://www.w3school.com.cn/tags/index.asp> from <GET http://www.w3school.com.cn/html5/html5_reference.asp>
+2017-04-17 13:32:42 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/index.asp> (referer: http://www.w3school.com.cn/html5/html5_quiz.asp)
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/index.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/index.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/index.asp>
 {'H2': u'\u6309\u5b57\u6bcd\u987a\u5e8f\u6392\u5217'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/index.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/index.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_byfunc.asp> (referer: http://www.w3school.com.cn/tags/index.asp)
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_byfunc.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_byfunc.asp> (referer: http://www.w3school.com.cn/tags/index.asp)
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_byfunc.asp>
 {}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_byfunc.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_byfunc.asp>
 {'H2': u'\u6309\u529f\u80fd\u7c7b\u522b\u6392\u5217'}
-2017-03-16 19:04:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_byfunc.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_byfunc.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_standardattributes.asp> (referer: http://www.w3school.com.cn/tags/html_ref_byfunc.asp)
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_standardattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_standardattributes.asp> (referer: http://www.w3school.com.cn/tags/html_ref_byfunc.asp)
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_standardattributes.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_standardattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_standardattributes.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_standardattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_standardattributes.asp>
 {'H2': u'HTML \u5168\u5c40\u5c5e\u6027'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_standardattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_standardattributes.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_eventattributes.asp> (referer: http://www.w3school.com.cn/tags/html_ref_standardattributes.asp)
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_eventattributes.asp> (referer: http://www.w3school.com.cn/tags/html_ref_standardattributes.asp)
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
 {'H2': u'\u5168\u5c40\u4e8b\u4ef6\u5c5e\u6027'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
 {'H2': u'Window \u4e8b\u4ef6\u5c5e\u6027'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
 {'H2': u'Form \u4e8b\u4ef6'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
 {'H2': u'Keyboard \u4e8b\u4ef6'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
 {'H2': u'Mouse \u4e8b\u4ef6'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
 {'H2': u'Media \u4e8b\u4ef6'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_eventattributes.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp> (referer: http://www.w3school.com.cn/tags/html_ref_eventattributes.asp)
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp> (referer: http://www.w3school.com.cn/tags/html_ref_eventattributes.asp)
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
 {'H2': u'HTML5 \u89c6\u9891\u548c\u97f3\u9891\u7684 DOM \u53c2\u8003\u624b\u518c'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
 {'H2': u'HTML5 Audio/Video \u65b9\u6cd5'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
 {'H2': u'HTML5 Audio/Video \u5c5e\u6027'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
 {'H2': u'HTML5 Audio/Video \u4e8b\u4ef6'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_canvas.asp> (referer: http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp)
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_canvas.asp> (referer: http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp)
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u63cf\u8ff0'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u6d4f\u89c8\u5668\u652f\u6301'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u989c\u8272\u3001\u6837\u5f0f\u548c\u9634\u5f71'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u7ebf\u6761\u6837\u5f0f'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u77e9\u5f62'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u8def\u5f84'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u8f6c\u6362'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u6587\u672c'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u56fe\u50cf\u7ed8\u5236'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u50cf\u7d20\u64cd\u4f5c'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u5408\u6210'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {'H2': u'\u5176\u4ed6'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_canvas.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_dtd.asp> (referer: http://www.w3school.com.cn/tags/html_ref_canvas.asp)
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_dtd.asp>
+2017-04-17 13:32:43 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_dtd.asp> (referer: http://www.w3school.com.cn/tags/html_ref_canvas.asp)
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_dtd.asp>
 {}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_dtd.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_dtd.asp>
 {'H2': u'HTML5/HTML 4.01/XHTML \u5143\u7d20\u548c\u6709\u6548\u7684 DTD'}
-2017-03-16 19:04:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_dtd.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_dtd.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_colornames.asp> (referer: http://www.w3school.com.cn/tags/html_ref_dtd.asp)
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_colornames.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_colornames.asp> (referer: http://www.w3school.com.cn/tags/html_ref_dtd.asp)
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_colornames.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_colornames.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_colornames.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_colornames.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_colornames.asp>
 {'H2': u'\u989c\u8272\u540d\u5217\u8868'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_colornames.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_colornames.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_charactersets.asp> (referer: http://www.w3school.com.cn/tags/html_ref_colornames.asp)
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_charactersets.asp> (referer: http://www.w3school.com.cn/tags/html_ref_colornames.asp)
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
 {'H2': u'HTML \u5b57\u7b26\u96c6'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
 {'H2': u'ISO \u5b57\u7b26\u96c6'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
 {'H2': u'Unicode \u6807\u51c6'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
 {'H2': u'Unicode \u8054\u76df'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_charactersets.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_ascii.asp> (referer: http://www.w3school.com.cn/tags/html_ref_charactersets.asp)
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_ascii.asp> (referer: http://www.w3school.com.cn/tags/html_ref_charactersets.asp)
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
 {'H2': u'7 \u6bd4\u7279 \u53ef\u663e\u793a\u7684 ASCII \u4ee3\u7801'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
 {'H2': u'7 \u6bd4\u7279 \u8bbe\u5907\u63a7\u5236 ASCII\u4ee3\u7801'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_ascii.asp>
 {}
-2017-03-16 19:04:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_entities.html> (referer: http://www.w3school.com.cn/tags/html_ref_ascii.asp)
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_entities.html> (referer: http://www.w3school.com.cn/tags/html_ref_ascii.asp)
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
 {'H2': u'\u5e26\u6709\u5b9e\u4f53\u540d\u79f0\u7684 ASCII \u5b9e\u4f53'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
 {'H2': u'ISO 8859-1 \u7b26\u53f7\u5b9e\u4f53'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
 {'H2': u'ISO 8859-1 \u5b57\u7b26\u5b9e\u4f53'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_entities.html>
 {}
-2017-03-16 19:04:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_symbols.html> (referer: http://www.w3school.com.cn/tags/html_ref_entities.html)
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_symbols.html> (referer: http://www.w3school.com.cn/tags/html_ref_entities.html)
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
 {'H2': u'HTML \u652f\u6301\u7684\u6570\u5b66\u7b26\u53f7'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
 {'H2': u'HTML \u652f\u6301\u7684\u5e0c\u814a\u5b57\u6bcd'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
 {'H2': u'HTML \u652f\u6301\u7684\u5176\u4ed6\u5b9e\u4f53'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_symbols.html>
 {}
-2017-03-16 19:04:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_urlencode.html> (referer: http://www.w3school.com.cn/tags/html_ref_symbols.html)
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_urlencode.html> (referer: http://www.w3school.com.cn/tags/html_ref_symbols.html)
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
 {}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
 {'H2': u'URL \u7f16\u7801 - \u4ece %00 \u5230 %8f'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
 {'H2': u'URL \u7f16\u7801 - \u4ece %90 \u5230 %ff'}
-2017-03-16 19:04:43 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
+2017-04-17 13:32:44 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_urlencode.html>
 {}
-2017-03-16 19:04:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_httpmessages.asp> (referer: http://www.w3school.com.cn/tags/html_ref_urlencode.html)
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_httpmessages.asp> (referer: http://www.w3school.com.cn/tags/html_ref_urlencode.html)
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
 {}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
 {}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
 {'H2': u'1xx: \u4fe1\u606f'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
 {'H2': u'2xx: \u6210\u529f'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
 {'H2': u'3xx: \u91cd\u5b9a\u5411'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
 {'H2': u'4xx: \u5ba2\u6237\u7aef\u9519\u8bef'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
 {'H2': u'5xx: \u670d\u52a1\u5668\u9519\u8bef'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmessages.asp>
 {}
-2017-03-16 19:04:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_language_codes.asp> (referer: http://www.w3school.com.cn/tags/html_ref_urlencode.html)
-2017-03-16 19:04:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_httpmethods.asp> (referer: http://www.w3school.com.cn/tags/html_ref_httpmessages.asp)
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_language_codes.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_language_codes.asp> (referer: http://www.w3school.com.cn/tags/html_ref_urlencode.html)
+2017-04-17 13:32:45 [scrapy] DEBUG: Crawled (200) <GET http://www.w3school.com.cn/tags/html_ref_httpmethods.asp> (referer: http://www.w3school.com.cn/tags/html_ref_httpmessages.asp)
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_language_codes.asp>
 {}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_language_codes.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_language_codes.asp>
 {'H2': u'ISO \u8bed\u8a00\u4ee3\u7801'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_language_codes.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_language_codes.asp>
 {'H2': u'ISO 639-1 \u8bed\u8a00\u4ee3\u7801'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_language_codes.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_language_codes.asp>
 {}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {'H2': u'\u4ec0\u4e48\u662f HTTP\uff1f'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {'H2': u'\u4e24\u79cd HTTP \u8bf7\u6c42\u65b9\u6cd5\uff1aGET \u548c POST'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {'H2': u'GET \u65b9\u6cd5'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {'H2': u'POST \u65b9\u6cd5'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {'H2': u'\u6bd4\u8f83 GET \u4e0e POST'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {'H2': u'\u5176\u4ed6 HTTP \u8bf7\u6c42\u65b9\u6cd5'}
-2017-03-16 19:04:44 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
+2017-04-17 13:32:45 [scrapy] DEBUG: Scraped from <200 http://www.w3school.com.cn/tags/html_ref_httpmethods.asp>
 {}
-2017-03-16 19:04:44 [scrapy.core.engine] INFO: Closing spider (finished)
-2017-03-16 19:04:44 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+2017-04-17 13:32:45 [scrapy] INFO: Closing spider (finished)
+2017-04-17 13:32:45 [scrapy] INFO: Dumping Scrapy stats:
 {'downloader/request_bytes': 12235,
  'downloader/request_count': 34,
  'downloader/request_method_count/GET': 34,
- 'downloader/response_bytes': 633119,
+ 'downloader/response_bytes': 633122,
  'downloader/response_count': 34,
  'downloader/response_status_count/200': 33,
  'downloader/response_status_count/301': 1,
  'dupefilter/filtered': 34,
  'finish_reason': 'finished',
- 'finish_time': datetime.datetime(2017, 3, 16, 11, 4, 44, 358000),
+ 'finish_time': datetime.datetime(2017, 4, 17, 5, 32, 45, 358000),
  'item_scraped_count': 241,
  'log_count/DEBUG': 277,
  'log_count/INFO': 7,
@@ -564,5 +565,5 @@
  'scheduler/dequeued/memory': 34,
  'scheduler/enqueued': 34,
  'scheduler/enqueued/memory': 34,
- 'start_time': datetime.datetime(2017, 3, 16, 11, 4, 38, 867000)}
-2017-03-16 19:04:44 [scrapy.core.engine] INFO: Spider closed (finished)
+ 'start_time': datetime.datetime(2017, 4, 17, 5, 32, 39, 968000)}
+2017-04-17 13:32:45 [scrapy] INFO: Spider closed (finished)

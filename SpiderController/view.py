@@ -28,6 +28,10 @@ def data_list(request):
     return render(request,'data_list.html')
 
 @isLogin
+def data_format(request):
+    return render(request,'data_format.html')
+
+@isLogin
 def admin_userlist(request):
     return render(request,'admin_userlist.html')
 

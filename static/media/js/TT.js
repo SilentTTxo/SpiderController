@@ -64,7 +64,7 @@ var TT = {
 				}
 			});
 			$("#logout").click(function(){
-				location.href='https://login.flyme.cn/sso/logout?useruri=http://corpus.tx-tools.meizu.com/system_info.html'
+				location.href='./login.html'
 			})
 		});
 		$(".footer").load("/media/include/footer.html");

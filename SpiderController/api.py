@@ -288,6 +288,14 @@ def DataTransformatDownload(request):
     oripath =  os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + sp.name + ".json"
 
     targetpath = os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + sp.name + "." + extension
+
+    if(os.path.exists(targetpath)):
+        oriSize = os.path.getsize(oripath)
+        targetSize = os.path.getsize(targetpath)
+
+        if(targetSize != oriSize):
+            recreate = 1
+
     if(not os.path.exists(targetpath) or recreate != 0):
         if(target == 0):
             json2txt(oripath,targetpath)
@@ -297,7 +305,8 @@ def DataTransformatDownload(request):
         #     json2xls(oripath,targetpath)
         if(target == 3):
             json2sql(oripath,targetpath)
-
+    
+        
     def file_iterator(file_name, chunk_size=512):
         with open(targetpath) as f:
             while True:

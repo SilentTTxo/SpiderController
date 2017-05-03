@@ -183,23 +183,16 @@
         addDataItem = function (data) {
             dstr =
                 '<tr><td>{sid}</td><td>{name}</td><td>{datasum}</td><td>{do}</td></tr>'
-
-
-
             //添加可执行操作
             View =
                 '<a href="#viewModal" class="btn mini purple View" data-toggle="modal"><i class="icon-edit"></i> 预览</a>'
             Delete = '<a href="#" class="btn mini black Delete"><i class="icon-trash"></i> 删除</a>'
             Download = '<a href="/api/spiderDataDownload?sid={sid}" class="btn mini green Download"><i class="icon-share"></i> 下载</a>'.format(data)
             //Stop = '<a href="#" class="btn mini red Stop"><i class="icon-share"></i> 停止</a>'
-
             data.do = View + Download + Delete
-
             dstr = dstr.format(data)
             $("tbody").append(dstr)
-
         }
-
         //刷新爬虫列表
         flush = function () {
             y = -1
@@ -215,7 +208,6 @@
                     if (y == -1) {
                         y = setTimeout(flush, 5000)
                     }
-
                     //按钮事件
                     $(".Run").click(function () {
                         sid = this.parentNode.parentNode.children[0].innerHTML
@@ -233,7 +225,6 @@
                             }
                         });
                     })
-
                     $(".Stop").click(function () {
                         sid = this.parentNode.parentNode.children[0].innerHTML
                         $.ajax({
@@ -250,7 +241,6 @@
                             }
                         });
                     })
-
                     $(".Delete").click(function () {
                         sid = this.parentNode.parentNode.children[0].innerHTML
                         $.ajax({
@@ -267,10 +257,8 @@
                             }
                         });
                     })
-
                     $(".View").click(function () {
                         $("#viewData").val("")
-
                         sid = this.parentNode.parentNode.children[0].innerHTML
                         nowEditSid = sid
                         $.ajax({
@@ -286,7 +274,6 @@
                 }
             });
         }
-
         //按钮点击事件初始化
         btnInit = function () {
             //添加Item
@@ -301,7 +288,6 @@
                     '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small uparam"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large uparam"></div></div>'
                 $("#uParam").append(data)
             })
-
             //新建爬虫
             $("#saveNewSpider").click(function () {
                 Name = $("#newSpiderName").val()
@@ -317,7 +303,6 @@
                     }
                     list[p[i].value] = p[i + 1].value
                 }
-
                 paramdata = {
                     "item": Item,
                     "href": Href,
@@ -345,7 +330,6 @@
                     }
                 });
             })
-
             //修改爬虫
             $("#updateSpider").click(function () {
                 Item = $("#updateSpiderItem").val()
@@ -359,7 +343,6 @@
                     }
                     list[p[i].value] = p[i + 1].value
                 }
-
                 paramdata = {
                     "item": Item,
                     "href": Href,
@@ -387,7 +370,6 @@
                 });
             })
         }
-
         //刷新添加爬虫模态框的数据
         flushNewSpiderModel = function () {
             $("#newSpiderName").val("")
@@ -397,12 +379,9 @@
             $("#Param").empty()
             $("#Param").append("<p></p>")
         }
-
         jQuery(document).ready(function () {
-
             App.init();
             TT.init();
-
             flush()
             btnInit()
         });

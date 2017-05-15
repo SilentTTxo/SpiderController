@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^view/spider_log.html', spider_log),
     url(r'^view/spider_manual.html', spider_manual),
     url(r'^view/spider_auto.html', spider_auto),
+    url(r'^view/spider_new.html', spider_new),
     url(r'^view/data_list.html', data_list),
     url(r'^view/data_format.html', data_format),
     url(r'^view/admin_userlist.html', admin_userlist),

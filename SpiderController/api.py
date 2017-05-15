@@ -33,6 +33,7 @@ def spiderFactoryUpdate(sp):
     param = -1
     item = -1
     href = -1
+    mode = 0
 
     if(sp.param != "-1"):
         data = json.loads(sp.param)
@@ -40,10 +41,11 @@ def spiderFactoryUpdate(sp):
         param = data['param']
         item = data['item']
         href = data['href']
+        mode = data['mode']
 
     base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
 
-    spiderFile(base,name,startUrl,param,item,href)
+    spiderFile(base,name,startUrl,param,item,href,mode)
     itemFile(sp)
     pipelinesFile(base,name)
     settingFile(base,name)
@@ -167,7 +169,7 @@ def delSpider(request):
 
 def getSpiderSetting(request):
     data = Spider.objects.get(id = request.GET['sid'])
-
+    
     return HttpResponse(data.param)
 
 def getSpiderInfo(request):

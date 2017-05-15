@@ -90,7 +90,9 @@
 									<div class="progress">
 											<div style="width: 0%;" class="bar" id="ramp"></div>
 									</div>
-									<p>NET：发出数据包：<span id="netsent"></span> 接收数据包：<span id="netrcvd"></span></p>
+									<p>NET：</p>
+									<p>下行流量：<span id="netsent"></span>&nbsp;&nbsp;&nbsp;&nbsp;上行流量：<span id="netrcvd"></span></p>
+									<p>下行速率：<span id="netsentV"></span>&nbsp;&nbsp;&nbsp;&nbsp;上行速率：<span id="netrcvdV"></span></p>
 								</div>
 							</div>
 						</div>
@@ -149,6 +151,10 @@
 	<script src="/media/js/TT.js"></script>
 
 	<script>
+	
+	var oldSent = -1;
+	var oldResave = -1;
+
 	color = function(item,num){
 		item = item.parent()
 		num = parseInt(num.split("%")[0])
@@ -178,6 +184,20 @@
 					$("#ramp").width(ramu/ramt*100+"%")
 					$("#cpuspan").html(result.CPU)
 					$("#ramspan").html(ramu+"M / "+ramt+"M")
+
+					if(oldResave == -1 && oldSent == -1){
+						oldSent = parseInt(result.NET.split(" ")[1])
+						oldResave = parseInt(result.NET.split(" ")[0])
+					}
+					newSent = parseInt(result.NET.split(" ")[1])
+					newResave = parseInt(result.NET.split(" ")[0])
+
+					$("#netsentV").html(newSent - oldSent +"M/s")
+					$("#netrcvdV").html(newResave - oldResave+"M/s")
+
+					oldSent = newSent
+					oldResave = newResave
+					
 
 					$("#netsent").html(result.NET.split(" ")[1]+"M")
 					$("#netrcvd").html(result.NET.split(" ")[0]+"M")

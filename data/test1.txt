@@ -5,7 +5,7 @@ Django Nginx+uwsgi 安装配置
 Django 模型	
 Django 教程	
 Django 模板	
-Django 安装	
 Django 表单	
-Django Admin 管理工具	
 Django 创建第一个项目	
+Django 安装	
+Django Admin 管理工具	

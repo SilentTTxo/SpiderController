@@ -1,0 +1,20 @@
+// 新建classic爬虫
+Name = $("#newSpiderName_classic").val("GGG6")
+Other = $("#newSpiderOther_classic").val("dsa")
+Item = $("#newSpiderItem_classic").val("html")
+Href = $("#newSpiderHref_classic").val("#leftcolumn > a::attr(href)")
+StartUrl = $("#newSpiderStartUrl_classic").val("http://www.runoob.com/django/django-model.html")
+$("#addParamItem_classic").click()
+$($(".param_classic")[0]).val("H1")
+$($(".param_classic")[1]).val("h1::text")
+
+// 新建menu1爬虫
+Name = $("#newSpiderName_menu1").val("menu1")
+Other = $("#newSpiderOther_menu1").val("dsa")
+Item = $("#newSpiderItem_menu1").val("html")
+Href = $("#newSpiderHref_menu1").val(".sons > p > a::attr(href)")
+StartUrl = $("#newSpiderStartUrl_menu1").val("http://so.gushiwen.org/type.aspx")
+NextUrl = $("#newSpiderNextHref_menu1").val(".pages > a::attr(href)")
+$("#addParamItem_menu1").click()
+$($(".param_menu1")[0]).val("H1")
+$($(".param_menu1")[1]).val("h1::text")

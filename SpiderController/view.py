@@ -24,6 +24,10 @@ def spider_auto(request):
     return render(request,'spider_auto.html')
 
 @isLogin
+def spider_new(request):
+    return render(request,'spider_new.html')
+
+@isLogin
 def data_list(request):
     return render(request,'data_list.html')
 

@@ -7,7 +7,7 @@ import json
 import csv
 import xlwt
 
-def spiderFile(base,name,startUrl,param,item,href):
+def spiderFile(base,name,startUrl,param,item,href,mode):
     #write to SpiderFile
     spfile = open(base+name+'\\'+name+'\\spiders\\'+name+'_spider.py', 'w')
 
@@ -17,7 +17,13 @@ def spiderFile(base,name,startUrl,param,item,href):
 
     if(param == "-1"):
         baseData += "\t\tpass\n"
-    else:
+
+        spfile.write(baseData)
+        spfile.close()
+        return
+    
+    # classicMode
+    if(mode == 1):
         if(item != -1 and param != -1):
             baseData += '\t\tfor i in response.css("%s"):\n' %item +\
             "\t\t\titem = %sItem()\n" %name.capitalize() 
@@ -25,13 +31,38 @@ def spiderFile(base,name,startUrl,param,item,href):
                 baseData += '\t\t\ttry:\n'
                 baseData += '\t\t\t\titem["%s"] = i.css("%s")[0].extract()\n' %(i,param[i])
                 baseData += '\t\t\texcept:\n\t\t\t\tpass\n'
-            baseData += "\t\t\tyield item\n"
+                baseData += "\t\t\tyield item\n"
 
         if(href != -1):
             baseData += '\t\tfor href in response.css("%s"):\n' %href +\
             "\t\t\turl = href.extract()\n" + \
             "\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" + \
             "\t\t\tyield scrapy.Request(url)\n"
+
+    elif(mode == 2):
+        baseData += '\t\tfor href in response.css("%s"):\n' %href +\
+            "\t\t\turl = href.extract()\n" + \
+            "\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" + \
+            "\t\t\tyield scrapy.Request(url,self.dataParse)\n"
+        
+        baseData += '\n\t\tfor nexthref in response.css("%s"):\n' %param['nextHref'] +\
+            "\t\t\turl = nexthref.extract()\n" + \
+            "\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" + \
+            "\t\t\tyield scrapy.Request(url)\n"
+        
+        param.pop('nextHref')
+
+        baseData += "\tdef dataParse(self,response):\n" 
+
+        if(item != -1 and param != -1):
+            baseData += '\t\tfor i in response.css("%s"):\n' %item +\
+            "\t\t\titem = %sItem()\n" %name.capitalize() 
+            for i in param:
+                baseData += '\t\t\ttry:\n'
+                baseData += '\t\t\t\titem["%s"] = i.css("%s")[0].extract()\n' %(i,param[i])
+                baseData += '\t\t\texcept:\n\t\t\t\tpass\n'
+                baseData += "\t\t\tyield item\n"
+            
 
         
     #sys.path.append(base+name+'\\'+name)

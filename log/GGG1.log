@@ -1,0 +1,25 @@
+2017-05-15 17:57:19 [scrapy] INFO: Scrapy 1.1.2 started (bot: GGG1)
+2017-05-15 17:57:19 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'GGG1.spiders', 'SPIDER_MODULES': ['GGG1.spiders'], 'ROBOTSTXT_OBEY': True, 'BOT_NAME': 'GGG1'}
+Traceback (most recent call last):
+  File "c:\python27\lib\runpy.py", line 174, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "c:\python27\lib\runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "C:\Python27\Scripts\scrapy.exe\__main__.py", line 9, in <module>
+  File "c:\python27\lib\site-packages\scrapy\cmdline.py", line 142, in execute
+    _run_print_help(parser, _run_command, cmd, args, opts)
+  File "c:\python27\lib\site-packages\scrapy\cmdline.py", line 88, in _run_print_help
+    func(*a, **kw)
+  File "c:\python27\lib\site-packages\scrapy\cmdline.py", line 149, in _run_command
+    cmd.run(args, opts)
+  File "c:\python27\lib\site-packages\scrapy\commands\crawl.py", line 57, in run
+    self.crawler_process.crawl(spname, **opts.spargs)
+  File "c:\python27\lib\site-packages\scrapy\crawler.py", line 162, in crawl
+    crawler = self.create_crawler(crawler_or_spidercls)
+  File "c:\python27\lib\site-packages\scrapy\crawler.py", line 190, in create_crawler
+    return self._create_crawler(crawler_or_spidercls)
+  File "c:\python27\lib\site-packages\scrapy\crawler.py", line 194, in _create_crawler
+    spidercls = self.spider_loader.load(spidercls)
+  File "c:\python27\lib\site-packages\scrapy\spiderloader.py", line 43, in load
+    raise KeyError("Spider not found: {}".format(spider_name))
+KeyError: 'Spider not found: GGG1'

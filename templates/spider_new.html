@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/media/css/TT.css" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+    <style type="text/css">
+        .modal {
+            color: black
+        }
+    </style>
+    <div class="loader">
+        <div class="loading-1"></div>
+        <div class="loading-2">Loading...</div>
+    </div>
+    <!-- BEGIN HEADER -->
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+        <!-- BEGIN TOP NAVIGATION BAR -->
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <!-- BEGIN LOGO -->
+                <a class="brand" href="index.html">
+                    <img src="/media/image/logo.png" alt="logo" />
+                </a>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                    <img src="/media/image/menu-toggler.png" alt="" />
+                </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <ul class="nav pull-right">
+                </ul>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+        </div>
+        <!-- END TOP NAVIGATION BAR -->
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container row-fluid">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar nav-collapse collapse">
+            <!-- BEGIN SIDEBAR MENU -->
+            <ul class="page-sidebar-menu">
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>portlet Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                <style type="text/css">
+
+                </style>
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class="span12" id="pageinfo">
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row-fluid">
+                    <div class="span12 dataContent">
+
+                        <!--选择框-->
+                        <div class="portlet box green">
+                            <div class="portlet-title">
+                                <div class="caption"><i class="icon-cogs"></i>爬虫类型选择</div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse" id="selectFold"></a>
+                                    <a href="javascript:;" class="remove"></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row-fluid">
+                                    <div class="span3">
+                                        <div class="pricing-table">
+                                            <h3>经典</h3>
+                                            <div class="desc">
+                                                链接暴露在外，一个页面一个区域，所有的待爬取数据都在区域里
+                                            </div>
+                                            <ul>
+                                                <li><i class="icon-angle-right"></i> 区域匹配</li>
+                                                <li><i class="icon-angle-right"></i> 1个页面1份数据</li>
+                                                <li>&nbsp;</li>
+                                                <li>&nbsp;</li>
+                                                <li>&nbsp;</li>
+                                            </ul>
+                                            <div class="rate">
+                                                <a href="###" class="btn green choose" id="classicChoose">
+												选中 <i class="m-icon-swapright m-icon-white"></i>
+												</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span3">
+                                        <div class="pricing-table">
+                                            <h3>目录单页面</h3>
+                                            <div class="desc">
+                                                从目录页面起始，爬取一个又一个页面，一份数据在一个页面内
+                                            </div>
+                                            <ul>
+                                                <li><i class="icon-angle-right"></i> 目录为起始页</li>
+                                                <li><i class="icon-angle-right"></i> 1个页面1份数据</li>
+                                                <li>&nbsp;</li>
+                                                <li>&nbsp;</li>
+                                                <li>&nbsp;</li>
+                                            </ul>
+                                            <div class="rate">
+                                                <a href="###" class="btn green choose" id="menu1Choose">
+												选中 <i class="m-icon-swapright m-icon-white"></i>
+												</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span3">
+                                        <div class="pricing-table">
+                                            <h3>目录多页面</h3>
+                                            <div class="desc">
+                                                从目录页面起始，爬取一个又一个页面，一份数据在多个页面内
+                                            </div>
+                                            <ul>
+                                                <li><i class="icon-angle-right"></i> 目录为起始页</li>
+                                                <li><i class="icon-angle-right"></i> 多个页面1份数据</li>
+                                                <li><i class="icon-angle-right"></i> 许多子选项卡页面</li>
+                                                <li>&nbsp;</li>
+                                                <li>&nbsp;</li>
+                                            </ul>
+                                            <div class="rate">
+                                                <a href="###" class="btn green choose" id="menuNChoose">
+												选中 <i class="m-icon-swapright m-icon-white"></i>
+												</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--经典模式-->
+                        <div class="portlet box grey mode" id="classic" style="display:none">
+                            <div class="portlet-title">
+                                <div class="caption"><i class="icon-cogs"></i>经典模式</div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse"></a>
+                                    <a href="javascript:;" class="remove"></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row-fluid">
+                                    <h3 id="myModalLabel1">添加爬虫</h3>
+                                    <p></p>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4>爬虫基本信息</h4>
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">爬虫名</label>
+                                        <input type="text" placeholder="Name" class="m-wrap small" id="newSpiderName_classic">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">爬虫描述</label>
+                                        <input type="text" placeholder="Other" class="m-wrap large" id="newSpiderOther_classic">
+                                    </div>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4>爬虫基本配置</h4>
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">区域匹配</label>
+                                        <input type="text" placeholder="Item" class="m-wrap large" id="newSpiderItem_classic">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">链接匹配</label>
+                                        <input type="text" placeholder="Href" class="m-wrap large" id="newSpiderHref_classic">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">起始链接</label>
+                                        <input type="text" placeholder="StartUrl" class="m-wrap large" id="newSpiderStartUrl_classic">
+                                    </div>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4 style="display:inline;margin-right: 20px;">数据项配置</h4>
+                                        <a href="###" class="btn" style="display:inline" id="addParamItem_classic"><i class="icon-plus"></i> 添加</a>
+                                    </div>
+                                    <div id="Param_classic">
+                                        <p></p>
+                                    </div>
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true" id="CanselNewSpider">取消</button>
+                                    <button class="btn yellow save" data-dismiss="modal" aria-hidden="true" id="createClassicSpider">保存</button>
+                                    <button class="btn green update" id="updateClassicSpider">修改</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--目录单页面-->
+                        <div class="portlet box blue mode" id="menu1" style="display:none">
+                            <div class="portlet-title">
+                                <div class="caption"><i class="icon-cogs"></i>目录单页面</div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse"></a>
+                                    <a href="javascript:;" class="remove"></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row-fluid">
+                                    <h3 id="myModalLabel1">添加爬虫</h3>
+                                    <p></p>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4>爬虫基本信息</h4>
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">爬虫名</label>
+                                        <input type="text" placeholder="Name" class="m-wrap small" id="newSpiderName_menu1">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">爬虫描述</label>
+                                        <input type="text" placeholder="Other" class="m-wrap large" id="newSpiderOther_menu1">
+                                    </div>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4>爬虫基本配置</h4>
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">区域匹配</label>
+                                        <input type="text" placeholder="Item" class="m-wrap large" id="newSpiderItem_menu1">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">链接匹配</label>
+                                        <input type="text" placeholder="Href" class="m-wrap large" id="newSpiderHref_menu1">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">下一页匹配</label>
+                                        <input type="text" placeholder="nextHref" class="m-wrap large" id="newSpiderNextHref_menu1">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">起始链接</label>
+                                        <input type="text" placeholder="StartUrl" class="m-wrap large" id="newSpiderStartUrl_menu1">
+                                    </div>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4 style="display:inline;margin-right: 20px;">数据项配置</h4>
+                                        <a href="###" class="btn" style="display:inline" id="addParamItem_menu1"><i class="icon-plus"></i> 添加</a>
+                                    </div>
+                                    <div id="Param_menu1">
+                                        <p></p>
+                                    </div>
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true" id="CanselNewSpider">取消</button>
+                                    <button class="btn yellow save" data-dismiss="modal" aria-hidden="true" id="createMenu1Spider">保存</button>
+                                    <button class="btn green update" id="updateMenu1Spider">修改</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--目录多页面-->
+                        <div class="portlet box red mode" id="menuN" style="display:none">
+                            <div class="portlet-title">
+                                <div class="caption"><i class="icon-cogs"></i>目录多页面</div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse"></a>
+                                    <a href="javascript:;" class="remove"></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row-fluid">
+                                    <h3 id="myModalLabel1">添加爬虫</h3>
+                                    <p></p>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4>爬虫基本信息</h4>
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">爬虫名</label>
+                                        <input type="text" placeholder="Name" class="m-wrap small" id="newSpiderName">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">爬虫描述</label>
+                                        <input type="text" placeholder="Other" class="m-wrap large" id="newSpiderOther">
+                                    </div>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4>爬虫基本配置</h4>
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">区域匹配</label>
+                                        <input type="text" placeholder="Item" class="m-wrap large" id="newSpiderItem">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">链接匹配</label>
+                                        <input type="text" placeholder="Href" class="m-wrap large" id="newSpiderHref">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">下一页匹配</label>
+                                        <input type="text" placeholder="nextHref" class="m-wrap large" id="newSpiderHref">
+                                    </div>
+                                    <div class="span12">
+                                        <label class="control-label span2">起始链接</label>
+                                        <input type="text" placeholder="StartUrl" class="m-wrap large" id="newSpiderStartUrl">
+                                    </div>
+                                    <div class="span12" style="margin-bottom: 20px">
+                                        <h4 style="display:inline;margin-right: 20px;">数据项配置</h4>
+                                        <a href="###" class="btn" style="display:inline" id="addParamItem_classic"><i class="icon-plus"></i> 添加</a>
+                                    </div>
+                                    <div id="Param">
+                                        <p></p>
+                                    </div>
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true" id="CanselNewSpider">取消</button>
+                                    <button class="btn yellow save" data-dismiss="modal" aria-hidden="true" id="saveNewSpider">保存</button>
+                                    <button class="btn green update" id="updateClassicSpider">修改</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT-->
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+        <!-- END PAGE -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+    </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+    <script src="/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+    <script src="/media/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+	<script src="/media/js/excanvas.min.js"></script>
+	<script src="/media/js/respond.min.js"></script>  
+	<![endif]-->
+    <script src="/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.uniform.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="/media/js/jquery.vmap.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.vmap.russia.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.vmap.world.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.vmap.europe.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.vmap.germany.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.vmap.usa.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.flot.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.flot.resize.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.pulsate.min.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.flot.pie.js"></script>
+    <script src="/media/js/jquery.flot.stack.js"></script>
+    <script src="/media/js/jquery.flot.crosshair.js"></script>
+    <script src="/media/js/date.js" type="text/javascript"></script>
+    <script src="/media/js/daterangepicker.js" type="text/javascript"></script>
+    <script src="/media/js/jquery.gritter.js" type="text/javascript"></script>
+    <script src="/media/js/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="/media/js/app.js"></script>
+    <script src="//cdn.bootcss.com/Chart.js/1.1.0/Chart.js"></script>
+    <script src="/media/js/TT.js"></script>
+    <script>
+        var key = false;
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return decodeURI(r[2]);
+            }
+            return null;
+        }
+
+        btnInit = function () {
+
+            //爬虫类型选择
+            $(".choose").click(function () {
+                $("#selectFold").click()
+
+                $(".mode").hide()
+
+                $("#" + this.id.split("Choose")[0]).show()
+            })
+
+            //添加Item
+            $("#addParamItem_classic").click(function () {
+                data =
+                    '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_classic"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_classic"></div></div>'
+                $("#Param_classic").append(data)
+                return false;
+            })
+            $("#addParamItem_menu1").click(function () {
+                data =
+                    '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_menu1"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_menu1"></div></div>'
+                $("#Param_menu1").append(data)
+                return false;
+            })
+            $("#addParamItem_classic").click(function () {
+                data =
+                    '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_classic"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_classic"></div></div>'
+                $("#Param_classic").append(data)
+                return false;
+            })
+
+            //新建classic爬虫
+            $("#createClassicSpider").click(function () {
+                Name = $("#newSpiderName_classic").val()
+                Other = $("#newSpiderOther_classic").val()
+                Item = $("#newSpiderItem_classic").val()
+                Href = $("#newSpiderHref_classic").val()
+                StartUrl = $("#newSpiderStartUrl_classic").val()
+                Mode = 1
+
+                p = $(".param_classic")
+                list = {}
+                for (i = 0; i < p.length; i += 2) {
+                    if (p[i].value == "" || p[i + 1].value == "") {
+                        continue
+                    }
+                    list[p[i].value] = p[i + 1].value
+                }
+
+                paramdata = {
+                    "item": Item,
+                    "href": Href,
+                    "startUrl": StartUrl,
+                    "param": list,
+                    "mode": Mode
+                }
+                paramdata = JSON.stringify(paramdata);
+                data = {
+                    "name": Name,
+                    "other": Other,
+                    "param": paramdata
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/createSpider",
+                    data: data,
+                    success: function (result) {
+                        result = jQuery.parseJSON(result);
+                        if (result.code == "1") {
+                            showMsg("新建成功")
+                            flush()
+                        } else {
+                            showMsg("新建失败")
+                        }
+                    }
+                });
+            })
+
+            //新建menu1爬虫
+            $("#createMenu1Spider").click(function () {
+                Name = $("#newSpiderName_menu1").val()
+                Other = $("#newSpiderOther_menu1").val()
+                Item = $("#newSpiderItem_menu1").val()
+                Href = $("#newSpiderHref_menu1").val()
+                NextHref = $("#newSpiderNextHref_menu1").val()
+                StartUrl = $("#newSpiderStartUrl_menu1").val()
+                Mode = 2
+
+                p = $(".param_menu1")
+                list = { "nextHref": NextHref }
+                for (i = 0; i < p.length; i += 2) {
+                    if (p[i].value == "" || p[i + 1].value == "") {
+                        continue
+                    }
+                    list[p[i].value] = p[i + 1].value
+                }
+
+                paramdata = {
+                    "item": Item,
+                    "href": Href,
+                    "startUrl": StartUrl,
+                    "param": list,
+                    "mode": Mode
+                }
+                paramdata = JSON.stringify(paramdata);
+                data = {
+                    "name": Name,
+                    "other": Other,
+                    "param": paramdata
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/createSpider",
+                    data: data,
+                    success: function (result) {
+                        result = jQuery.parseJSON(result);
+                        if (result.code == "1") {
+                            showMsg("新建成功")
+                            flush()
+                        } else {
+                            showMsg("新建失败")
+                        }
+                    }
+                });
+            })
+
+            //新建menuN爬虫
+            $("#createMenuNSpider").click(function () {
+                Name = $("#newSpiderName").val()
+                Other = $("#newSpiderOther").val()
+                Item = $("#newSpiderItem").val()
+                Href = $("#newSpiderHref").val()
+                StartUrl = $("#newSpiderStartUrl").val()
+                Mode = 1
+
+                p = $(".param")
+                list = {}
+                for (i = 0; i < p.length; i += 2) {
+                    if (p[i].value == "" || p[i + 1].value == "") {
+                        continue
+                    }
+                    list[p[i].value] = p[i + 1].value
+                }
+
+                paramdata = {
+                    "item": Item,
+                    "href": Href,
+                    "startUrl": StartUrl,
+                    "param": list,
+                    "mode": Mode
+                }
+                paramdata = JSON.stringify(paramdata);
+                data = {
+                    "name": Name,
+                    "other": Other,
+                    "param": paramdata
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/createSpider",
+                    data: data,
+                    success: function (result) {
+                        result = jQuery.parseJSON(result);
+                        if (result.code == "1") {
+                            showMsg("新建成功")
+                            flush()
+                        } else {
+                            showMsg("新建失败")
+                        }
+                    }
+                });
+            })
+
+            //修改classic爬虫
+            $("#updateClassicSpider").click(function () {
+                Name = $("#newSpiderName_classic").val()
+                Other = $("#newSpiderOther_classic").val()
+                Item = $("#newSpiderItem_classic").val()
+                Href = $("#newSpiderHref_classic").val()
+                StartUrl = $("#newSpiderStartUrl_classic").val()
+                Mode = 1
+
+                p = $(".param_classic")
+                list = {}
+                for (i = 0; i < p.length; i += 2) {
+                    if (p[i].value == "" || p[i + 1].value == "") {
+                        continue
+                    }
+                    list[p[i].value] = p[i + 1].value
+                }
+
+                paramdata = {
+                    "item": Item,
+                    "href": Href,
+                    "startUrl": StartUrl,
+                    "param": list,
+                    "mode": Mode
+                }
+                paramdata = JSON.stringify(paramdata);
+                data = {
+                    "sid": getQueryString("sid"),
+                    "param": paramdata
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/saveSpiderItem",
+                    data: data,
+                    success: function (result) {
+                        result = jQuery.parseJSON(result);
+                        if (result.code == "1") {
+                            showMsg("修改成功")
+                            flush()
+                        } else {
+                            showMsg("修改失败")
+                        }
+                    }
+                });
+            })
+
+            //修改menu1爬虫
+            $("#updateMenu1Spider").click(function () {
+                Name = $("#newSpiderName_menu1").val()
+                Other = $("#newSpiderOther_menu1").val()
+                Item = $("#newSpiderItem_menu1").val()
+                Href = $("#newSpiderHref_menu1").val()
+                NextHref = $("#newSpiderNextHref_menu1").val()
+                StartUrl = $("#newSpiderStartUrl_menu1").val()
+                Mode = 2
+
+                p = $(".param_menu1")
+                list = { "nextHref": NextHref }
+                for (i = 0; i < p.length; i += 2) {
+                    if (p[i].value == "" || p[i + 1].value == "") {
+                        continue
+                    }
+                    list[p[i].value] = p[i + 1].value
+                }
+
+                paramdata = {
+                    "item": Item,
+                    "href": Href,
+                    "startUrl": StartUrl,
+                    "param": list,
+                    "mode": Mode
+                }
+                paramdata = JSON.stringify(paramdata);
+                data = {
+                    "sid": getQueryString("sid"),
+                    "param": paramdata
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/saveSpiderItem",
+                    data: data,
+                    success: function (result) {
+                        result = jQuery.parseJSON(result);
+                        if (result.code == "1") {
+                            showMsg("修改成功")
+                            flush()
+                        } else {
+                            showMsg("修改失败")
+                        }
+                    }
+                });
+            })
+
+            //修改menuN爬虫
+            $("#updateMenuNSpider").click(function () {
+                Name = $("#newSpiderName").val()
+                Other = $("#newSpiderOther").val()
+                Item = $("#newSpiderItem").val()
+                Href = $("#newSpiderHref").val()
+                StartUrl = $("#newSpiderStartUrl").val()
+                Mode = 1
+
+                p = $(".param")
+                list = {}
+                for (i = 0; i < p.length; i += 2) {
+                    if (p[i].value == "" || p[i + 1].value == "") {
+                        continue
+                    }
+                    list[p[i].value] = p[i + 1].value
+                }
+
+                paramdata = {
+                    "item": Item,
+                    "href": Href,
+                    "startUrl": StartUrl,
+                    "param": list,
+                    "mode": Mode
+                }
+                paramdata = JSON.stringify(paramdata);
+                data = {
+                    "sid": getQueryString("sid"),
+                    "param": paramdata
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/saveSpiderItem",
+                    data: data,
+                    success: function (result) {
+                        result = jQuery.parseJSON(result);
+                        if (result.code == "1") {
+                            showMsg("修改成功")
+                            flush()
+                        } else {
+                            showMsg("修改失败")
+                        }
+                    }
+                });
+            })
+
+        }
+
+        fixInit = function () {
+            if (key == false) key = true;
+            else return
+            sid = getQueryString("sid")
+            $(".save").hide()
+            $(".update").show()
+
+            showMsg("获取数据中...")
+
+            $.ajax({
+                type: "GET",
+                url: "/api/getSpiderSetting?sid=" + sid,
+                success: function (result) {
+                    showMsg("获取成功")
+                    result = jQuery.parseJSON(result);
+                    if (typeof (result.mode) == "undefined") mode = 1
+                    else mode = result.mode
+
+                    if (mode == 1) {
+                        $("#classicChoose").click()
+                        Name = $("#newSpiderName_classic").val(getQueryString("name"))
+                        Other = $("#newSpiderOther_classic").val(getQueryString("other"))
+                        Item = $("#newSpiderItem_classic").val(result.item)
+                        Href = $("#newSpiderHref_classic").val(result.href)
+                        StartUrl = $("#newSpiderStartUrl_classic").val(result.startUrl)
+
+                        
+                        for (i in result.param) {
+                            data = '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_classic" value="' + i + '"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_classic" value="' + result.param[i] + '"></div></div>'
+                            $("#Param_classic").append(data)
+                        }
+                    }
+
+                    if (mode == 2) {
+                        $("#menu1Choose").click()
+                        Name = $("#newSpiderName_menu1").val(getQueryString("name"))
+                        Other = $("#newSpiderOther_menu1").val(getQueryString("other"))
+                        Item = $("#newSpiderItem_menu1").val(result.item)
+                        NextHref = $("#newSpiderNextHref_menu1").val(result.param.nextHref)
+                        Href = $("#newSpiderHref_menu1").val(result.href)
+                        StartUrl = $("#newSpiderStartUrl_menu1").val(result.startUrl)
+
+                        delete result.param.nextHref
+                        for (i in result.param) {
+                            data = '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_menu1" value="' + i + '"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_menu1" value="' + result.param[i] + '"></div></div>'
+                            $("#Param_menu1").append(data)
+                        }
+                    }
+                }
+            });
+        }
+
+        jQuery(document).ready(function () {
+            App.init();
+            TT.init();
+
+            btnInit();
+            $(".update").hide()
+
+            $("html").ajaxStop(function () {
+                if (getQueryString("fix") != null) {
+                    fixInit();
+                }
+            })
+
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+
+</html>

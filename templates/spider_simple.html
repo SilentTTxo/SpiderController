@@ -126,7 +126,7 @@
                                             </div>
                                             <div class="span12" style="margin-bottom: 20px">
                                                 <h4 style="display:inline;margin-right: 20px;">数据项配置</h4>
-                                                <a href="#" class="btn" style="display:inline" id="addParamItem"><i class="icon-plus"></i> 添加</a>
+                                                <a href="###" class="btn" style="display:inline" id="addParamItem"><i class="icon-plus"></i> 添加</a>
                                             </div>
                                             <div id="Param">
                                                 <p></p>
@@ -151,6 +151,7 @@
                                             <th>描述</th>
                                             <th>状态</th>
                                             <th>数据量</th>
+                                            <th>速度</th>
                                             <th style="width: 20%;">操作</th>
                                         </tr>
                                     </thead>
@@ -183,7 +184,7 @@
                                         </div>
                                         <div class="span12" style="margin-bottom: 20px">
                                             <h4 style="display:inline;margin-right: 20px;">数据项配置</h4>
-                                            <a href="#" class="btn" style="display:inline" id="adduParamItem"><i class="icon-plus"></i> 添加</a>
+                                            <a href="###" class="btn" style="display:inline" id="adduParamItem"><i class="icon-plus"></i> 添加</a>
                                         </div>
                                         <div id="uParam">
                                             <p></p>
@@ -254,20 +255,39 @@
     <script src="/media/js/TT.js"></script>
 
     <script>
+        var freashTime = 3;
         var y
         var nowEditSid
+        var oldSize = {}
+
         addDataItem = function (data) {
+            var v = 0.00;
+            if(typeof(oldSize[data.sid])=="undefined"){
+                oldSize[data.sid] = data.datasum
+                v = 0.00;
+            }
+            else{
+                v = (data.datasum.split(" ")[0] - oldSize[data.sid].split(" ")[0]) / freashTime 
+                if(v < 0){
+                    v = (parseInt(data.datasum.split(" ")[0]).toFixed(2) - 0) / freashTime + " " + data.datasum.split(" ")[1]
+                }
+                else{
+                    v = v.toFixed(2) + " " + data.datasum.split(" ")[1]
+                }
+                oldSize[data.sid] = data.datasum
+            }
+            data.v = v;
             dstr =
-                '<tr><td>{sid}</td><td>{name}</td><td>{other}</td><td>{status}</td><td>{datasum}</td><td>{do}</td></tr>'
+                '<tr><td>{sid}</td><td>{name}</td><td>{other}</td><td>{status}</td><td>{datasum}</td><td>{v}/s</td><td>{do}</td></tr>'
 
 
 
             //添加可执行操作
             Edit =
-                '<a href="#updateModal" class="btn mini purple Edit" data-toggle="modal"><i class="icon-edit"></i> 编辑</a>'
-            Delete = '<a href="#" class="btn mini black Delete"><i class="icon-trash"></i> 删除</a>'
-            Run = '<a href="#" class="btn mini blue Run"><i class="icon-share"></i> 运行</a>'
-            Stop = '<a href="#" class="btn mini red Stop"><i class="icon-share"></i> 停止</a>'
+                '<a href="###" class="btn mini purple Edit" ><i class="icon-edit"></i> 编辑</a>'
+            Delete = '<a href="###" class="btn mini black Delete"><i class="icon-trash"></i> 删除</a>'
+            Run = '<a href="###" class="btn mini blue Run"><i class="icon-share"></i> 运行</a>'
+            Stop = '<a href="###" class="btn mini red Stop"><i class="icon-share"></i> 停止</a>'
 
             //确认状态
             if (data.status == 1) {
@@ -291,13 +311,15 @@
                 type: "GET",
                 url: "/api/getSpiderInfo",
                 success: function (result) {
+
                     $("tbody").empty()
                     result = jQuery.parseJSON(result);
+
                     for (i in result.data) {
                         addDataItem(result.data[i])
                     }
                     if (y == -1) {
-                        y = setTimeout(flush, 5000)
+                        y = setTimeout(flush, freashTime * 1000)
                     }
 
                     //按钮事件
@@ -353,35 +375,42 @@
                     })
 
                     $(".Edit").click(function () {
-                        showMsg("获取数据中...")
-                        Item = $("#updateSpiderItem").attr("disabled", "disabled");
-                        Href = $("#updateSpiderHref").attr("disabled", "disabled");
-                        StartUrl = $("#updateSpiderStartUrl").attr("disabled", "disabled");
-                        $("#uParam").empty()
-                        $("#uParam").append("<p></p>")
 
                         sid = this.parentNode.parentNode.children[0].innerHTML
-                        nowEditSid = sid
-                        $.ajax({
-                            type: "GET",
-                            url: "/api/getSpiderSetting?sid=" + sid,
-                            success: function (result) {
-                                showMsg("获取成功")
-                                result = jQuery.parseJSON(result);
-                                Item = $("#updateSpiderItem").val(result.item)
-                                Href = $("#updateSpiderHref").val(result.href)
-                                StartUrl = $("#updateSpiderStartUrl").val(result.startUrl)
+                        name = this.parentNode.parentNode.children[1].innerHTML
+                        other = this.parentNode.parentNode.children[2].innerHTML
 
-                                Item = $("#updateSpiderItem").removeAttr("disabled")
-                                Href = $("#updateSpiderHref").removeAttr("disabled")
-                                StartUrl = $("#updateSpiderStartUrl").removeAttr("disabled")
+                        window.location.href = "/view/spider_new.html?fix=1&sid="+sid + "&name=" + name + "&other=" + other
 
-                                for(i in result.param){
-                                    data = '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small uparam" value="'+i+'"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large uparam" value="'+result.param[i]+'"></div></div>'
-                                    $("#uParam").append(data)
-                                }
-                            }
-                        });
+                        // showMsg("获取数据中...")
+                        // Item = $("#updateSpiderItem").attr("disabled", "disabled");
+                        // Href = $("#updateSpiderHref").attr("disabled", "disabled");
+                        // StartUrl = $("#updateSpiderStartUrl").attr("disabled", "disabled");
+                        // $("#uParam").empty()
+                        // $("#uParam").append("<p></p>")
+
+                        // sid = this.parentNode.parentNode.children[0].innerHTML
+                        // nowEditSid = sid
+                        // $.ajax({
+                        //     type: "GET",
+                        //     url: "/api/getSpiderSetting?sid=" + sid,
+                        //     success: function (result) {
+                        //         showMsg("获取成功")
+                        //         result = jQuery.parseJSON(result);
+                        //         Item = $("#updateSpiderItem").val(result.item)
+                        //         Href = $("#updateSpiderHref").val(result.href)
+                        //         StartUrl = $("#updateSpiderStartUrl").val(result.startUrl)
+
+                        //         Item = $("#updateSpiderItem").removeAttr("disabled")
+                        //         Href = $("#updateSpiderHref").removeAttr("disabled")
+                        //         StartUrl = $("#updateSpiderStartUrl").removeAttr("disabled")
+
+                        //         for(i in result.param){
+                        //             data = '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small uparam" value="'+i+'"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large uparam" value="'+result.param[i]+'"></div></div>'
+                        //             $("#uParam").append(data)
+                        //         }
+                        //     }
+                        // });
                     })
                 }
             });

@@ -48,7 +48,7 @@ def spiderFactoryUpdate(sp):
     spiderFile(base,name,startUrl,param,item,href,mode)
     itemFile(sp)
     pipelinesFile(base,name)
-    settingFile(base,name)
+    settingFile(base,name,False,-1)
     
 
 def getSpiderStatusById(sid):
@@ -70,8 +70,19 @@ def countSpiderData(sp):
     return count
 
 
+#########################################################################      ipproxy fun       ###############################################################################
+def getIpList(user):
+    u = user
 
-
+    ipnum = IpProxy.objects.all().count()
+    validIp = u.power*50+50 + u.addIp
+    if(validIp == 0):
+        validIp = ipnum
+    if(validIp > ipnum):
+        validIp = ipnum
+    
+    ipList = IpProxy.objects.all()[0:validIp]
+    return ipList
 
 #########################################################################      spiderApi       ###############################################################################
 
@@ -177,7 +188,7 @@ def getSpiderInfo(request):
     data = {"code":1}
     y = []
     for i in sp:
-        item = {"sid":i.id,"name":i.name,"status":getSpiderStatusById(str(i.id)),"other":i.other,"datasum":"No data"}
+        item = {"sid":i.id,"name":i.name,"status":getSpiderStatusById(str(i.id)),"other":i.other,"datasum":"No data","isProxy":i.isProxy}
         path = os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + i.name + ".json"
         if os.path.exists(path):
             size = os.path.getsize(path)
@@ -268,6 +279,32 @@ def spiderDataDelete(request):
     path =  os.path.dirname(os.path.dirname(__file__)) + "\\data\\" + sp.name + ".json"
 
     os.remove(path)
+
+    return HttpResponse(json.dumps({"code":1}))
+
+def switchSpiderProxy(request):
+    uid = request.session.get('uid',-1)
+    sp = Spider.objects.get(id = request.GET['sid'])
+    isProxy = request.GET['isProxy']
+    if(isProxy == '1'):
+        isProxy = True
+    else:
+        isProxy = False
+    
+    u = User.objects.get(id = uid)
+    ipList = getIpList(u)
+    base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
+    name = sp.name
+
+    middlewaresFile(sp,isProxy)
+    settingFile(base,name,isProxy,ipList)
+
+    if(isProxy):
+        sp.isProxy = 1
+    else:
+        sp.isProxy = 0
+    sp.save()
+
 
     return HttpResponse(json.dumps({"code":1}))
 
@@ -388,7 +425,51 @@ def fixUserPower(request):
 
     return HttpResponse(json.dumps({"code":1}))
 
-#########################################################################      otherApi       ###############################################################################
+#########################################################################      ipPorxy Api       ###############################################################################
+def getIpInfo(request):
+    uid = request.session.get('uid',-1)
+    u = User.objects.get(id = uid)
+
+    ipnum = IpProxy.objects.all().count()
+    validIp = u.power*50+50 + u.addIp
+    if(u.power == -1):
+        validIp = ipnum
+    if(validIp > ipnum):
+        validIp = ipnum
+    
+
+    rs = {"code":1,"ipnum":ipnum,"valid":validIp}
+    return HttpResponse(json.dumps(rs))
+
+@csrf_exempt    
+def addIp(request):
+    uid = request.session.get('uid',-1)
+    u = User.objects.get(id = uid)
+
+    ipList = request.POST.get('ipList',-1)
+    if(ipList == -1):
+        return HttpResponse(json.dumps({"code":0,"msg":"value can not be empty"}))
+
+    ipList = ipList.split(",")
+    okList = []
+    wrongList = []
+
+    for i in ipList:
+        key1 = checkIp(i)
+        key2 = checkIp(i)
+        key3 = checkIp(i)
+        if(key1 or key2 or key3):
+            okList.append(i)
+            IpProxy.objects.create(value = i,isAlive = 1,fromUser = uid)
+            u.addIp = u.addIp + 1
+        else:
+            wrongList.append(i)
+    
+    u.save()
+    
+    return HttpResponse(json.dumps({"code":1,"okList":json.dumps(okList),"wrongLisst":json.dumps(wrongList)}))
+
+#########################################################################      other Api       ###############################################################################
 
 def getHtmlPage(request):
     url = request.GET['url']

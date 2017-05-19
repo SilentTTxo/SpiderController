@@ -31,14 +31,16 @@ def spiderFile(base,name,startUrl,param,item,href,mode):
                 baseData += '\t\t\ttry:\n'
                 baseData += '\t\t\t\titem["%s"] = i.css("%s")[0].extract()\n' %(i,param[i])
                 baseData += '\t\t\texcept:\n\t\t\t\tpass\n'
-                baseData += "\t\t\tyield item\n"
+
+            baseData += "\t\t\tyield item\n"
 
         if(href != -1):
             baseData += '\t\tfor href in response.css("%s"):\n' %href +\
             "\t\t\turl = href.extract()\n" + \
             "\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" + \
             "\t\t\tyield scrapy.Request(url)\n"
-
+    
+    #menu1
     elif(mode == 2):
         baseData += '\t\tfor href in response.css("%s"):\n' %href +\
             "\t\t\turl = href.extract()\n" + \
@@ -61,9 +63,60 @@ def spiderFile(base,name,startUrl,param,item,href,mode):
                 baseData += '\t\t\ttry:\n'
                 baseData += '\t\t\t\titem["%s"] = i.css("%s")[0].extract()\n' %(i,param[i])
                 baseData += '\t\t\texcept:\n\t\t\t\tpass\n'
-                baseData += "\t\t\tyield item\n"
-            
 
+            baseData += "\t\t\tyield item\n"
+        
+    #menuN
+    elif(mode == 3):
+        baseData += '\t\tfor href in response.css("%s"):\n' %href +\
+            "\t\t\turl = href.extract()\n" + \
+            "\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" + \
+            "\t\t\tyield scrapy.Request(url,self.dataParse)\n"
+        
+        baseData += '\n\t\tfor nexthref in response.css("%s"):\n' %param['nextHref'] +\
+            "\t\t\turl = nexthref.extract()\n" + \
+            "\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" + \
+            "\t\t\tyield scrapy.Request(url)\n"
+        
+        param.pop('nextHref')
+
+        baseData += "\tdef dataParse(self,response):\n" 
+
+        if(item != -1 and param != -1):
+            ikey = 0
+            pageList = []
+            baseData += '\t\tfor i in response.css("%s"):\n' %item +\
+            "\t\t\titem = %sItem()\n" %name.capitalize() + \
+            "\t\t\turlList = []\n"
+
+            for i in param:
+                baseData += '\t\t\ttry:\n'
+                baseData += '\t\t\t\t%s = i.css("%s")[0].extract()\n' %(i,param[i]['href'])
+                baseData += "\t\t\t\turl = %s\n" %i +\
+            "\t\t\t\turl = urljoin_rfc(get_base_url(response), url)\n" 
+                baseData += '\t\t\t\turlList.append(url)\n'
+                baseData += '\t\t\texcept:\n\t\t\t\tpass\n'
+                param[i].pop('href')
+                pageList.append(i)
+                
+            
+            baseData += "\t\t\tyield scrapy.Request(urlList[%s],self.%sParse,meta={'item':item,'urlList':urlList})\n" %(ikey,pageList[0])
+            ikey += 1
+            
+            for i in param:
+                baseData +='\tdef %sParse(self,response):\n' %i + \
+                '\t\titem = response.meta["item"]\n' + \
+                '\t\turlList = response.meta["urlList"]\n\n'
+                for j in param[i]:
+                    baseData += '\t\ttry:\n'
+                    baseData += '\t\t\titem["%s"] = response.css("%s")[0].extract()\n' %(j,param[i][j])
+                    baseData += '\t\texcept:\n\t\t\t\tpass\n'
+                
+                if(ikey == len(param)):
+                    baseData += "\t\tyield item\n"
+                else:
+                    baseData += "\t\tyield scrapy.Request(urlList[%s],self.%sParse,meta={'item':item,'urlList':urlList})\n" %(ikey,pageList[pageList.index(i)+1])
+                ikey +=1
         
     #sys.path.append(base+name+'\\'+name)
     #item = getattr(__import__("items"),name.capitalize()+"Item")
@@ -98,7 +151,7 @@ class %sPipeline(object):
     pipfile.write(baseData)
     pipfile.close()
 
-def settingFile(base,name):
+def settingFile(base,name,isProxy,ipList):
     #add pipline setting
     settingfile = open(base+name+'\\'+name+'\\settings.py', 'w')
     baseData = """
@@ -112,6 +165,41 @@ ITEM_PIPELINES = {
 }
     """
     baseData = baseData %(name,name,name,name,name.capitalize())
+    if(isProxy):
+        baseData += """
+DOWNLOADER_MIDDLEWARES = {
+    '%s.middlewares.RandomUserAgent': 1,
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 110,
+    '%s.middlewares.ProxyMiddleware': 100,
+}
+""" %(name,name)
+
+        ipStr = ""
+        for i in ipList:
+            ipStr += "{'ip_port': '%s', 'user_pass': ''}," % i.value
+        baseData += """
+USER_AGENTS = [
+    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)",
+    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)",
+    "Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.35; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)",
+    "Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)",
+    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)",
+    "Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 1.0.3705; .NET CLR 1.1.4322)",
+    "Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30)",
+    "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.3 (Change: 287 c9dfb30)",
+    "Mozilla/5.0 (X11; U; Linux; en-US) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.6",
+    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.2pre) Gecko/20070215 K-Ninja/2.1.1",
+    "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9) Gecko/20080705 Firefox/3.0 Kapiko/3.0",
+    "Mozilla/5.0 (X11; Linux i686; U;) Gecko/20070322 Kazehakase/0.4.5",
+    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.8) Gecko Fedora/1.9.0.8-1.fc10 Kazehakase/0.5.6",
+    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20",
+    "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52",
+]
+PROXIES = [
+    %s
+]
+""" % ipStr
     settingfile.write(baseData)
     settingfile.close()
 
@@ -125,16 +213,31 @@ def itemFile(sp):
     baseData = "import scrapy\n\nclass %sItem(scrapy.Item):\n" %(name.capitalize())
     jdata = json.loads(data)
     param = jdata['param']
-    for i in param:
-        print i + " : " + param[i]
-        baseData += "\t%s = scrapy.Field()\n" %i
+    mode = jdata['mode']
+
+    if(mode == 1):
+        for i in param:
+            print i + " : " + param[i]
+            baseData += "\t%s = scrapy.Field()\n" %i
+    elif(mode == 2):
+        param.pop("nextHref")
+        for i in param:
+            print i + " : " + param[i]
+            baseData += "\t%s = scrapy.Field()\n" %i
+    elif(mode == 3):
+        param.pop("nextHref")
+        for i in param:
+            param[i].pop('href')
+
+            for j in param[i]:
+                baseData += "\t%s = scrapy.Field()\n" %j
 
     output.write(baseData)
     output.close()
 
 def getFile(name,type):
     path = os.path.dirname(os.path.dirname(__file__)) + "\\"
-    filepath = path;
+    filepath = path
     if(type == 1): #spider
         filepath += name + "\\"+name+"\\spiders\\"+name+"_spider.py"
     if(type == 2): #piplines
@@ -167,6 +270,72 @@ def saveFile(name,type,content):
     file.close()
     
     return 1
+
+def middlewaresFile(sp,isProxy):
+    name = sp.name
+    base =  os.path.dirname(os.path.dirname(__file__)) + "\\"
+    output = open(base+name+'\\'+name+'\\middlewares.py', 'w')
+
+    baseData = """
+
+from scrapy import signals
+from settings import PROXIES
+import random
+import base64
+
+class %sSpiderMiddleware(object):
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        s = cls()
+        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        return s
+
+    def process_spider_input(response, spider):
+        return None
+
+    def process_spider_output(response, result, spider):
+        for i in result:
+            yield i
+
+    def process_spider_exception(response, exception, spider):
+        pass
+
+    def process_start_requests(start_requests, spider):
+
+        for r in start_requests:
+            yield r
+
+    def spider_opened(self, spider):
+        spider.logger.info('Spider opened: %%s' %% spider.name)
+""" %name
+    print(isProxy)
+    if(isProxy):
+        baseData += """
+class RandomUserAgent(object):
+	def __init__(self, agents):
+		self.agents = agents
+	@classmethod
+	def from_crawler(cls, crawler):
+		return cls(crawler.settings.getlist('USER_AGENTS'))
+	def process_request(self, request, spider):
+		#print "**************************" + random.choice(self.agents)
+		request.headers.setdefault('User-Agent', random.choice(self.agents))
+class ProxyMiddleware(object):
+	def process_request(self, request, spider):
+		proxy = random.choice(PROXIES)
+		if proxy['user_pass'] != '':
+			request.meta['proxy'] = "http://%s" % proxy['ip_port']
+			encoded_user_pass = base64.encodestring(proxy['user_pass'])
+			request.headers['Proxy-Authorization'] = 'Basic ' + encoded_user_pass
+			print "**************ProxyMiddleware have pass************" + proxy['ip_port']
+		else:
+			print "**************ProxyMiddleware no pass************" + proxy['ip_port']
+			request.meta['proxy'] = "http://%s" % proxy['ip_port']
+"""
+
+    output.write(baseData)
+    output.close()
 
 def formatSize(bytes):
     try:

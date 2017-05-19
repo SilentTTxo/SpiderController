@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "c:\python27\lib\runpy.py", line 174, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "c:\python27\lib\runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "C:\Python27\Scripts\scrapy.exe\__main__.py", line 9, in <module>
+  File "c:\python27\lib\site-packages\scrapy\cmdline.py", line 141, in execute
+    cmd.crawler_process = CrawlerProcess(settings)
+  File "c:\python27\lib\site-packages\scrapy\crawler.py", line 238, in __init__
+    super(CrawlerProcess, self).__init__(settings)
+  File "c:\python27\lib\site-packages\scrapy\crawler.py", line 129, in __init__
+    self.spider_loader = _get_spider_loader(settings)
+  File "c:\python27\lib\site-packages\scrapy\crawler.py", line 325, in _get_spider_loader
+    return loader_cls.from_settings(settings.frozencopy())
+  File "c:\python27\lib\site-packages\scrapy\spiderloader.py", line 33, in from_settings
+    return cls(settings)
+  File "c:\python27\lib\site-packages\scrapy\spiderloader.py", line 20, in __init__
+    self._load_all_spiders()
+  File "c:\python27\lib\site-packages\scrapy\spiderloader.py", line 28, in _load_all_spiders
+    for module in walk_modules(name):
+  File "c:\python27\lib\site-packages\scrapy\utils\misc.py", line 71, in walk_modules
+    submod = import_module(fullpath)
+  File "c:\python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\py\SpiderController\menuN5\menuN5\spiders\menuN5_spider.py", line 49
+    try:
+    ^
+IndentationError: unexpected indent

@@ -31,9 +31,14 @@ showMsg = function(data){
 		}
 var TT = {
 	init : function(){
+		var power = 0;
 		//解除蒙版加载动画
 		$("html").ajaxStop(function(){
 			$(".loader").fadeOut();
+
+			if(power == 0){
+				$(".ADMIN").hide()
+			}
 		})
 		//载入模板文件
 		$(".page-sidebar-menu").load("/media/include/sidebar.html",function(){
@@ -61,6 +66,7 @@ var TT = {
 				success : function(result){
 					result = jQuery.parseJSON(result);
 					$("#username")[0].innerHTML = result['username'];
+					power = result.power
 				}
 			});
 			$("#logout").click(function(){

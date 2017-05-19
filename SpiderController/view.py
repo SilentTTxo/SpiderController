@@ -28,6 +28,13 @@ def spider_new(request):
     return render(request,'spider_new.html')
 
 @isLogin
+def spider_proxy(request):
+    return render(request,'spider_proxy.html')
+
+@isLogin
+def spider_proxyIpList(request):
+    return render(request,'spider_proxyIpList.html')
+@isLogin
 def data_list(request):
     return render(request,'data_list.html')
 

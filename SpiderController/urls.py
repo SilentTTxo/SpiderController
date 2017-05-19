@@ -18,6 +18,8 @@ urlpatterns = [
     url(r'^view/spider_manual.html', spider_manual),
     url(r'^view/spider_auto.html', spider_auto),
     url(r'^view/spider_new.html', spider_new),
+    url(r'^view/spider_proxy.html', spider_proxy),
+    url(r'^view/spider_proxyIpList.html', spider_proxyIpList),
     url(r'^view/data_list.html', data_list),
     url(r'^view/data_format.html', data_format),
     url(r'^view/admin_userlist.html', admin_userlist),
@@ -42,6 +44,8 @@ urlpatterns = [
     url(r'^api/spiderDataDelete$', spiderDataDelete),
     url(r'^api/setSpiderSettingByUser$', setSpiderSettingByUser),
     url(r'^api/getSpiderSettingByUser$', getSpiderSettingByUser),
+    url(r'^api/switchSpiderProxy$', switchSpiderProxy),
+    
 
     #data api
     url(r'^api/DataTransformatDownload$', DataTransformatDownload),
@@ -52,6 +56,11 @@ urlpatterns = [
     url(r'^api/getUserInfo', getUserInfo),
     url(r'^api/getAllUser', getAllUser),
     url(r'^api/fixUserPower', fixUserPower),
+
+    #ipproxy api
+    url(r'^api/getIpInfo', getIpInfo),
+    url(r'^api/addIp', addIp),
+    # url(r'^api/getIpList', getIpList),
 
     #other api
     url(r'^api/getHtmlPage', getHtmlPage),

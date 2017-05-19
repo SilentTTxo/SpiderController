@@ -290,41 +290,41 @@
                                     </div>
                                     <div class="span12">
                                         <label class="control-label span2">爬虫名</label>
-                                        <input type="text" placeholder="Name" class="m-wrap small" id="newSpiderName">
+                                        <input type="text" placeholder="Name" class="m-wrap small" id="newSpiderName_menuN">
                                     </div>
                                     <div class="span12">
                                         <label class="control-label span2">爬虫描述</label>
-                                        <input type="text" placeholder="Other" class="m-wrap large" id="newSpiderOther">
+                                        <input type="text" placeholder="Other" class="m-wrap large" id="newSpiderOther_menuN">
                                     </div>
                                     <div class="span12" style="margin-bottom: 20px">
                                         <h4>爬虫基本配置</h4>
                                     </div>
                                     <div class="span12">
                                         <label class="control-label span2">区域匹配</label>
-                                        <input type="text" placeholder="Item" class="m-wrap large" id="newSpiderItem">
+                                        <input type="text" placeholder="Item" class="m-wrap large" id="newSpiderItem_menuN">
                                     </div>
                                     <div class="span12">
                                         <label class="control-label span2">链接匹配</label>
-                                        <input type="text" placeholder="Href" class="m-wrap large" id="newSpiderHref">
+                                        <input type="text" placeholder="Href" class="m-wrap large" id="newSpiderHref_menuN">
                                     </div>
                                     <div class="span12">
                                         <label class="control-label span2">下一页匹配</label>
-                                        <input type="text" placeholder="nextHref" class="m-wrap large" id="newSpiderHref">
+                                        <input type="text" placeholder="nextHref" class="m-wrap large" id="newSpiderNextHref_menuN">
                                     </div>
                                     <div class="span12">
                                         <label class="control-label span2">起始链接</label>
-                                        <input type="text" placeholder="StartUrl" class="m-wrap large" id="newSpiderStartUrl">
+                                        <input type="text" placeholder="StartUrl" class="m-wrap large" id="newSpiderStartUrl_menuN">
                                     </div>
                                     <div class="span12" style="margin-bottom: 20px">
                                         <h4 style="display:inline;margin-right: 20px;">数据项配置</h4>
-                                        <a href="###" class="btn" style="display:inline" id="addParamItem_classic"><i class="icon-plus"></i> 添加</a>
+                                        <a href="###" class="btn" style="display:inline" id="addHrefItem_menuN"><i class="icon-plus"></i> 添加页面</a>
                                     </div>
-                                    <div id="Param">
+                                    <div id="Href_menuN">
                                         <p></p>
                                     </div>
                                     <button class="btn" data-dismiss="modal" aria-hidden="true" id="CanselNewSpider">取消</button>
-                                    <button class="btn yellow save" data-dismiss="modal" aria-hidden="true" id="saveNewSpider">保存</button>
-                                    <button class="btn green update" id="updateClassicSpider">修改</button>
+                                    <button class="btn yellow save" data-dismiss="modal" aria-hidden="true" id="createMenuNSpider">保存</button>
+                                    <button class="btn green update" id="updateMenuNSpider">修改</button>
 
                                 </div>
                             </div>
@@ -414,10 +414,22 @@
                 $("#Param_menu1").append(data)
                 return false;
             })
-            $("#addParamItem_classic").click(function () {
+            $("#addHrefItem_menuN").click(function () {
+                num = $(".href_menuN").length
                 data =
-                    '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_classic"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_classic"></div></div>'
-                $("#Param_classic").append(data)
+                    '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small" disabled="disabled" value="pageHref' + num + '"><span class="help-inline">:</span><input type="text" placeholder="hrefexcute" class="m-wrap large href_menuN"><a href="###" class="btn addParamItem_menuN" style="margin-left:10px"><i class="icon-plus"></i> 添加数据项</a></div></div>'
+                $("#Href_menuN").append(data)
+
+                $(".addParamItem_menuN").unbind("click")
+                $(".addParamItem_menuN").click(function () {
+                    pa = $(this.parentNode.parentNode)
+                    data =
+                        '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_menuN"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_menuN"></div></div>'
+                    pa.append(data)
+                    return false;
+                })
+
+
                 return false;
             })
 
@@ -518,20 +530,29 @@
 
             //新建menuN爬虫
             $("#createMenuNSpider").click(function () {
-                Name = $("#newSpiderName").val()
-                Other = $("#newSpiderOther").val()
-                Item = $("#newSpiderItem").val()
-                Href = $("#newSpiderHref").val()
-                StartUrl = $("#newSpiderStartUrl").val()
-                Mode = 1
+                Name = $("#newSpiderName_menuN").val()
+                Other = $("#newSpiderOther_menuN").val()
+                Item = $("#newSpiderItem_menuN").val()
+                Href = $("#newSpiderHref_menuN").val()
+                NextHref = $("#newSpiderNextHref_menuN").val()
+                StartUrl = $("#newSpiderStartUrl_menuN").val()
+                Mode = 3
 
-                p = $(".param")
-                list = {}
-                for (i = 0; i < p.length; i += 2) {
-                    if (p[i].value == "" || p[i + 1].value == "") {
-                        continue
+                p = $("#Href_menuN > .span12")
+                list = { "nextHref": NextHref }
+                for (i = 0; i < p.length; i ++) {
+                    name = "pageHref" + i
+                    url = $(p[i]).find(".href_menuN").val()
+                    temp = { "href": url }
+                    pchild = $(p[i]).find(".param_menuN")
+
+                    for (j = 0; j < pchild.length; j += 2) {
+                        if (pchild[j].value == "" || pchild[j + 1].value == "") {
+                            continue
+                        }
+                        temp[pchild[j].value] = pchild[j + 1].value
                     }
-                    list[p[i].value] = p[i + 1].value
+                    list[name] = temp
                 }
 
                 paramdata = {
@@ -658,20 +679,29 @@
 
             //修改menuN爬虫
             $("#updateMenuNSpider").click(function () {
-                Name = $("#newSpiderName").val()
-                Other = $("#newSpiderOther").val()
-                Item = $("#newSpiderItem").val()
-                Href = $("#newSpiderHref").val()
-                StartUrl = $("#newSpiderStartUrl").val()
-                Mode = 1
+                Name = $("#newSpiderName_menuN").val()
+                Other = $("#newSpiderOther_menuN").val()
+                Item = $("#newSpiderItem_menuN").val()
+                Href = $("#newSpiderHref_menuN").val()
+                NextHref = $("#newSpiderNextHref_menuN").val()
+                StartUrl = $("#newSpiderStartUrl_menuN").val()
+                Mode = 3
 
-                p = $(".param")
-                list = {}
-                for (i = 0; i < p.length; i += 2) {
-                    if (p[i].value == "" || p[i + 1].value == "") {
-                        continue
+                p = $("#Href_menuN > .span12")
+                list = { "nextHref": NextHref }
+                for (i = 0; i < p.length; i ++) {
+                    name = "pageHref" + i
+                    url = $(p[i]).find(".href_menuN").val()
+                    temp = { "href": url }
+                    pchild = $(p[i]).find(".param_menuN")
+
+                    for (j = 0; j < pchild.length; j += 2) {
+                        if (pchild[j].value == "" || pchild[j + 1].value == "") {
+                            continue
+                        }
+                        temp[pchild[j].value] = pchild[j + 1].value
                     }
-                    list[p[i].value] = p[i + 1].value
+                    list[name] = temp
                 }
 
                 paramdata = {
@@ -730,7 +760,7 @@
                         Href = $("#newSpiderHref_classic").val(result.href)
                         StartUrl = $("#newSpiderStartUrl_classic").val(result.startUrl)
 
-                        
+
                         for (i in result.param) {
                             data = '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_classic" value="' + i + '"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_classic" value="' + result.param[i] + '"></div></div>'
                             $("#Param_classic").append(data)
@@ -750,6 +780,32 @@
                         for (i in result.param) {
                             data = '<div class="span12"><div class="controls"><input type="text" placeholder="paramname" class="m-wrap small param_menu1" value="' + i + '"><span class="help-inline">:</span><input type="text" placeholder="paramexcute" class="m-wrap large param_menu1" value="' + result.param[i] + '"></div></div>'
                             $("#Param_menu1").append(data)
+                        }
+                    }
+
+                    if(mode == 3){
+                        $("#menuNChoose").click()
+                        Name = $("#newSpiderName_menuN").val(getQueryString("name"))
+                        Other = $("#newSpiderOther_menuN").val(getQueryString("other"))
+                        Item = $("#newSpiderItem_menuN").val(result.item)
+                        NextHref = $("#newSpiderNextHref_menuN").val(result.param.nextHref)
+                        Href = $("#newSpiderHref_menuN").val(result.href)
+                        StartUrl = $("#newSpiderStartUrl_menuN").val(result.startUrl)
+
+                        delete result.param.nextHref
+                        k1=0;k2=0;
+                        for (i in result.param) {
+                            
+                            $("#addHrefItem_menuN").click()
+                            $($(".href_menuN")[k1]).val(result.param[i].href)
+                            delete result.param[i].href
+                            for(j in result.param[i]){
+                                $($(".addParamItem_menuN")[k1]).click()
+                                $($(".param_menuN")[k2]).val(j);$($(".param_menuN")[k2+1]).val(result.param[i][j])
+                                k2+=2
+                            }
+                            k1 ++
+                            
                         }
                     }
                 }
